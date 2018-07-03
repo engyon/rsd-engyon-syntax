@@ -1,0 +1,390 @@
+[Quoted text hidden]
+Ronald Tse <tse@ribose.com>	Mon, Jul 2, 2018 at 10:00 AM
+To: Markku-Juhani Olavi Saarinen <mjos@iki.fi>
+Hi Markku,
+
+Speak to you in a minute :-)
+
+Some information below.
+
+Background:
+
+Ribose has developed a document model called “BasicDoc” (better name search in progress…). It is basically a data model to represent a textual document, supports localization and change set (i.e. collaborative editing) features. We are planning to standardize this model in ISO as an International Standard. This model further relies on a bibliographic data model called Relaton, which is being standardized at ISO.
+
+BasicDoc: https://github.com/riboseinc/basicdoc-models
+
+BasicDoc has an adaptation that is further in progress, called Metanorma. Metanorma is a document model for “Standard documents”, such as ISO standards, etc. It has already been accepted at ISO for standardization (it will become an International Standard), and is adopted as the “standard model” by a number of standards bodies, including CalConnect, Cloud Security Alliance. It is one of the accepted ways to publish at the IETF (its AsciiDoc variant, called AsciiRFC), M3AAWG, and at the Standards Administration of China.
+
+Metanorma: https://github.com/riboseinc/metanorma-model-standoc
+
+We are looking to utilize BasicDoc as the basis for a Secure Document Model, called “Engyon” (greek for “guarantee”).
+
+The secure document model is meant to achieve the following:
+• a static file result — similar to a Word document, a standalone document that can be transmitted such as via email
+• protects content and metadata of the document (confidentiality, integrity, authenticity)
+• supports partial authenticity and encryption, i.e. a confidential document may contain publicly accessible content and metadata too. BasicDoc is a hierarchical data model, there are document sections, blocks, paragraphs, text, etc., so it can protect only the necessary parts of the document. This could also work as redaction of content.
+• supports information classification and labelling
+• supports secure change set features, such as encrypted sharing + patching (since BasicDoc supports patching)
+• supports a text-based workflow (it’s more up to the toolchain, but we still want text editors to be useful, vs a Word doc that is not editable without Word)
+• supports an end-to-end cloud-based workflow, for features such as expiry, access revocation, auditing
+• potential wish list: one-time access; time-based access (allowed to read in some future timeframe); content watermarking (for printing)
+
+
+Ron
+
+
+_____________________________________
+
+Ronald Tse
+Ribose Inc.
+
++=========================================================+
+This message may contain confidential and/or privileged
+information.  If you are not the addressee or authorized to
+receive this for the addressee, you must not use, copy,
+disclose or take any action based on this message or any
+information herein.  If you have received this message in
+error, please advise the sender immediately by reply e-mail
+and delete this message.  Thank you for your cooperation.
++=========================================================+
+[Quoted text hidden]
+Markku-Juhani Olavi Saarinen <mjos@iki.fi>	Tue, Jul 3, 2018 at 2:10 AM
+To: Ronald Tse <tse@ribose.com>
+Hi Ronald,
+
+Thanks for the contract text, it is generally agreeable. I can see
+that this is a framework agreement and the work specification goes
+into a "SOW", yet to be decided. I'm attaching a signed version of the
+MSA, can send by mail too.
+
+For the line of work that we currently have envisioned I propose a GBP
+500 daily rate since I'm working from home. I typically bill days or
+half days, depending on amount of work actually done, and report
+continuously. A nominal "day" has 8 working hours but even if it's
+really 12 hours it's still a single day. I usually try to confirm a
+"budget" of time to spend on a particular task before fully engaging
+in it. Emails or phone calls don't even count.
+
+We discussed the ongoing projects that you have -- the secure voice
+project sounds absolutely fascinating and something where one could
+have lots of fun prototyping with codecs, voice steganography, etc.
+But let's leave that for later. Perhaps I can provide security
+analysis for it, which is something that I am used to doing.
+
+The secure document model is an higher-level "architecture" task but
+the requirements are not quite as abstract as I originally feared --
+indeed your email contained a rather concrete wish list.
+
+> We are looking to utilize BasicDoc as the basis for a Secure Document Model, called “Engyon” (greek for “guarantee”).
+
+Nice name. I can see that you've already registered the domain
+engyon.com although there is nothing there..
+
+Proposal:
+
+I could start investigation into this by spending a few days getting
+familiar with the tools and formats you are using. I can see that
+there's Rust and Ruby used implementation-wise. Is this your preferred
+implementation language ?
+
+Your wish list:
+
+> The secure document model is meant to achieve the following:
+> • a static file result — similar to a Word document, a standalone document that can be transmitted such as via email
+> • protects content and metadata of the document (confidentiality, integrity, authenticity)
+> • supports partial authenticity and encryption, i.e. a confidential document may contain publicly accessible content and metadata too. BasicDoc is a hierarchical data model, there are document sections, blocks, paragraphs, text, etc., so it can protect only the necessary parts of the document. This could also work as redaction of content.
+
+I think a specification for a system that achieves this within the
+current system is one clear goal.  I'll first try to come up with
+relevant ideas and pitch that to you people, how about that ? Couple
+of pages after couple of days.
+
+> • supports information classification and labelling
+> • supports secure change set features, such as encrypted sharing + patching (since BasicDoc supports patching)
+> • supports a text-based workflow (it’s more up to the toolchain, but we still want text editors to be useful, vs a Word doc that is not editable without Word)
+> • supports an end-to-end cloud-based workflow, for features such as expiry, access revocation, auditing
+
+These are kind of natural as well.
+
+> • potential wish list: one-time access; time-based access (allowed to read in some future timeframe); content watermarking (for printing)
+
+Third party notary services and timestamping may be out of fashion,
+but the technology makes sense and is not all that complicated. Could
+do a writeup on options for this later.
+
+Cheers,
+- markku
+
+		20180702-Saarinen-MSA-Signed.pdf
+1331K
+Ronald Tse <tse@ribose.com>	Tue, Jul 3, 2018 at 8:07 AM
+To: Markku-Juhani Olavi Saarinen <mjos@iki.fi>
+Hi Markku,
+
+Thanks for returning the signed agreement, the electronic copy is good enough for us.
+
+The way you work is definitely commendable; the pricing is agreeable. In terms of payment methods, would PayPal (or other credit card based methods) work? It is generally more convenient for us. Now we can set logistics aside…
+
+Let’s start off with the secure document project and hopefully move on to the secure voice stuff soon after!
+
+The “Engyon" name is rather new, it took us some time to come up with it, that’s why there’s nothing on the site yet. We plan to post up items as we progress.
+
+In order to make the Engyon project useful, there are a couple components:
+
+1. Data model
+
+We need to first define the specification of the data model and how its components utilize cryptography. The wish list and/or further interesting functions of your suggestion will determine the needs of the data model (with the goal in mind of a cloud-assisted system that works also independently).
+
+2. Serialization
+
+Once the data model is set, we need to create a serialization of it for local file storage. Remember we want to use the data model in online (i.e. hosted in a cloud database) and offline (a single static file, like a Word doc) ways.
+
+For both purposes, we need a serialization (the storage format) of this data model (and its components). This could be an XML format, a JSON-LD structure, (or the ZIP archive method used by OOXML/ODF), or some native method of representing the data model.
+
+(for example, OpenPGP works with emails but isn't great as a representation for documents)
+
+3. Input and implementation
+
+When the serialization is somewhat ready, we need to create an implementation that can help us:
+
+- process input (text, images, etc) into the data model. We could leverage existing formats like AsciiDoctor or Markdown (or our Selagraph which is WIP)
+- render the output (e.g., HTML) from the data model
+- application of change sets (git is a per-line diff, BasicDoc model specifies changes using a per-component basis)
+
+In terms of implementation language, you are correct that Ruby and Rust is what we prefer going ahead; we’re trying to transition our C stuff into Rust.
+
+Perhaps we should first come up with an estimated number of days for the specification of the first item to start with? 
+
+Ron
+
+_____________________________________
+
+Ronald Tse
+Ribose Inc.
+
++=========================================================+
+This message may contain confidential and/or privileged
+information.  If you are not the addressee or authorized to
+receive this for the addressee, you must not use, copy,
+disclose or take any action based on this message or any
+information herein.  If you have received this message in
+error, please advise the sender immediately by reply e-mail
+and delete this message.  Thank you for your cooperation.
++=========================================================+
+
+[Quoted text hidden]
+[Quoted text hidden]
+<20180702-Saarinen-MSA-Signed.pdf>
+
+Markku-Juhani Olavi Saarinen <mjos@iki.fi>	Tue, Jul 3, 2018 at 11:01 AM
+To: Ronald Tse <tse@ribose.com>
+On Tue, Jul 3, 2018 at 8:07 AM Ronald Tse <tse@ribose.com> wrote:
+
+> Thanks for returning the signed agreement, the electronic copy is good enough for us.
+>
+> The way you work is definitely commendable; the pricing is agreeable. In terms of payment methods, would PayPal (or other credit card based methods) work? It is generally more convenient for us. Now we can set logistics aside…
+
+It's the start of July so a calendar month is a natural billing cycle.
+I can make PayPal available, sure.
+
+I'll mark down today as the first half day as I look deeper into your
+requirements and start drafting a description of cryptographic aspects
+of data model, as discussed below (the beginnings are there already).
+
+> (..)
+> In order to make the Engyon project useful, there are a couple components:
+>
+> 1. Data model
+>
+> We need to first define the specification of the data model and how its components utilize cryptography. The wish list and/or further interesting functions of your suggestion will determine the needs of the data model (with the goal in mind of a cloud-assisted system that works also independently).
+
+Here's a basic approach I would propose:
+
+I think I mentioned the concept of "content-addressed storage" (CAS)
+where data items are referred to simply by their contents. I would
+standardize on, say, SHA3-256 and use that throughout. Basically
+anything can be referred to by their cryptographic hash, regardless of
+their physical medium; a short piece of text, an image, an entire
+document, a license agreement.
+
+An implementation API will have a simple call that fetches data by
+their hash and uses local storage, caches, online directories, etc for
+it. It's irrelevant to the caller where the data comes from. The nice
+thing of course is that there is no additional need to verify if, say,
+something fetched from a cache is "fresh' since we only care if the
+cryptographic hash matches.
+
+If such a blob is encrypted, the hash is computed over the ciphertext.
+I'd have each small item have their unique, random 256-bit symmetric
+keys and integrity checks, and use an AEAD for confidentiality and
+integrity protection of content. The MAC guarantees that the plaintext
+related to a given ciphertext is uniquely defined.
+
+One can then create larger constructs by wrapping key - hash pairs
+into lists. Such a list can then be further encrypted and hashed to
+create larger constructs.
+
+Public key encryption of key-hash lists of keys achieves discrete
+access control that was in the wish list. Confidential parts of a
+document can be encrypted under different keys than public parts.
+
+Signatures are slightly more complex, since one needs to define the
+"meaning" of the signature. For example a signature for a contract is
+very different from a time stamp. Traditional certificate structures
+have struggled with this and X.509 is probably not sufficient or even
+appropriate here. However some ideas can be lifted from that work,
+such as validity periods and certification chains. However I would not
+call an signature object a "certificate" even if it is also used to
+tie an identity to a secret key.
+
+> 2. Serialization
+>
+> Once the data model is set, we need to create a serialization of it for local file storage. Remember we want to use the data model in online (i.e. hosted in a cloud database) and offline (a single static file, like a Word doc) ways.
+
+I think that the hash-blob storage method allows an extreme amount of
+freedom regarding online and offline storage, and is well suited for
+cloud and even distributed p2p-type storage (where it is in fact a
+norm in a way).
+
+A major technical bit here is the preference for a text-editable
+format (option). There needs to be some kind of "normalization"
+mechanism that essentially parses the text format input in a way that
+ignores irrelevant things such as placement of line feeds etc. This is
+also needed for hashing.
+
+> For both purposes, we need a serialization (the storage format) of this data model (and its components). This could be an XML format, a JSON-LD structure, (or the ZIP archive method used by OOXML/ODF), or some native method of representing the data model.
+
+Yes, it needs to be available in both textual and tight binary format.
+I think you're the expert here. Many of these formats serve the same
+purpose and can indeed be converted from one to another. I should
+mention ASN.1 is commonly used in cryptography (PKCS, PKI) and
+internet standards (SNMP etc), but no-one likes it.
+
+> (for example, OpenPGP works with emails but isn't great as a representation for documents)
+
+> 3. Input and implementation
+>
+> When the serialization is somewhat ready, we need to create an implementation that can help us:
+>
+> - process input (text, images, etc) into the data model. We could leverage existing formats like AsciiDoctor or Markdown (or our Selagraph which is WIP)
+> - render the output (e.g., HTML) from the data model
+> - application of change sets (git is a per-line diff, BasicDoc model specifies changes using a per-component basis)
+
+Yes, leverage existing formats where possible. The cryptography is
+there to provide a higher level functionality anyway. However the
+rendering process (into a PDF, HTML, etc) needs to be simple. I think
+you're the expert on this and scope it outside my work.
+
+From cryptographic viewpoint the diff part is perhaps best done per
+element, i.e. based on element hashes. Textual diff can be viewed as
+an efficient transform for turning one blob to an another. One may
+define a meta structure that states "this information transforms data
+blob with hash X to data blob with hash Y using mechanism Z" for a
+textual diff blob and its abstract analogues. Even a Makefile that
+turns source code into a binary is a "transform" of sorts. A key also
+turns an object into an another object.
+
+> In terms of implementation language, you are correct that Ruby and Rust is what we prefer going ahead; we’re trying to transition our C stuff into Rust.
+
+Great. I can work with Rust.
+
+> Perhaps we should first come up with an estimated number of days for the specification of the first item to start with?
+
+It's Tuesday so I could try to have few pages by next Monday, let's
+say 2.5 days total at that point ?
+[Quoted text hidden]
+Ronald Tse <tse@ribose.com>	Tue, Jul 3, 2018 at 11:45 AM
+To: Markku-Juhani Olavi Saarinen <mjos@iki.fi>
+Hi Markku,
+
+> It's Tuesday so I could try to have few pages by next Monday, let's
+> say 2.5 days total at that point ?
+
+Sounds good. Happy to start this work! I’m thinking we can create an open specification on GitHub. What do you think? And Rust is excellent.
+
+> I think I mentioned the concept of "content-addressed storage" (CAS)
+> …
+
+I’m fine with CAS, we do also want to allow the openness of using other (national) cryptographic hash functions for folks that want those.
+
+> One can then create larger constructs by wrapping key - hash pairs
+> into lists. Such a list can then be further encrypted and hashed to
+> create larger constructs.
+> 
+> Public key encryption of key-hash lists of keys achieves discrete
+> access control that was in the wish list. Confidential parts of a
+> document can be encrypted under different keys than public parts.
+
+This is exactly what we need. With public keys we also need to provide (or embed in the element) some metadata about the keys (algorithm, parameters, identification) used on the content to allow manipulating the content.
+
+> Signatures are slightly more complex, since one needs to define the
+> "meaning" of the signature. For example a signature for a contract is
+> very different from a time stamp. Traditional certificate structures
+> have struggled with this and X.509 is probably not sufficient or even
+> appropriate here. However some ideas can be lifted from that work,
+> such as validity periods and certification chains. However I would not
+> call an signature object a "certificate" even if it is also used to
+> tie an identity to a secret key.
+
+One use that does come up is a document created by multiple parties, say section X is written by Adam, section Y is written by Bob, then the authenticity of the document is guaranteed by some Acme Corp where Adam and Bob are from.
+
+>> 2. Serialization
+> I think that the hash-blob storage method allows an extreme amount of
+> freedom regarding online and offline storage, and is well suited for
+> cloud and even distributed p2p-type storage (where it is in fact a
+> norm in a way).
+
+Fully agree.
+
+> A major technical bit here is the preference for a text-editable
+> format (option). There needs to be some kind of "normalization"
+> mechanism that essentially parses the text format input in a way that
+> ignores irrelevant things such as placement of line feeds etc. This is
+> also needed for hashing.
+
+Indeed, being text-editable actually means that we have a bi-directional transformation from a text-editable format to the data model structure, and also the reverse. So this needs some ingenious thinking :-)
+
+> Yes, it needs to be available in both textual and tight binary format.
+> I think you're the expert here. Many of these formats serve the same
+> purpose and can indeed be converted from one to another. I should
+> mention ASN.1 is commonly used in cryptography (PKCS, PKI) and
+> internet standards (SNMP etc), but no-one likes it.
+
+I personally have no problem with ASN.1 but other alternatives also exist like BSON or protobuf. The good thing about ASN.1 is the deterministic conversion into JSON or XML or whatever format, but maybe too many people hate it. We can always define more than one format, for sure the more accessible formats will be more liked by normal developers. Unless we say the ASN.1 version is to target cryptographers.
+
+>> 3. Input and implementation
+> Yes, leverage existing formats where possible. The cryptography is
+> there to provide a higher level functionality anyway. However the
+> rendering process (into a PDF, HTML, etc) needs to be simple. I think
+> you're the expert on this and scope it outside my work.
+
+Right, I’m no expert but it’s something we can do.
+
+> From cryptographic viewpoint the diff part is perhaps best done per
+> element, i.e. based on element hashes. Textual diff can be viewed as
+> an efficient transform for turning one blob to an another. One may
+> define a meta structure that states "this information transforms data
+> blob with hash X to data blob with hash Y using mechanism Z" for a
+> textual diff blob and its abstract analogues. Even a Makefile that
+> turns source code into a binary is a "transform" of sorts. A key also
+> turns an object into an another object.
+
+Agree. With change sets and transforms there is a need for “chaining” or “versioning” too.
+[Quoted text hidden]
+Markku-Juhani Olavi Saarinen <mjos@iki.fi>	Tue, Jul 3, 2018 at 12:02 PM
+To: Ronald Tse <tse@ribose.com>
+Hi Ronald,
+
+I've recently migrated much of my new stuff from github to gitlab,
+mainly because they have free private repos. If you let me know your
+gitlab account name (or project group name etc) I can grant direct
+access to relevant stuff as I work on it.
+
+I can make the thing fully public (and perhaps change over to github)
+just a little bit later.
+
+Cheers,
+- markku
+
+Dr. Markku-Juhani O. Saarinen <mjos@iki.fi>
+[Quoted text hidden]
