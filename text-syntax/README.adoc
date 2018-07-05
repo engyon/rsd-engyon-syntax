@@ -15,11 +15,23 @@ https://github.com/riboseinc/metanorma-macos-setup[Metanorma install script]:
 bash <(curl -s https://raw.githubusercontent.com/riboseinc/metanorma-macos-setup/master/metanorma-setup)
 ----
 
+==== Linux
+
+On Ubuntu 18.04 the Ruby prerequisites can be installed with:
+
+[source,sh]
+----
+sudo apt install git make ruby-bundler ruby-dev libxml2-dev libxslt-dev default-jre
+sudo gem install bundler
+sudo gem install nokogiri -v '1.8.4'
+----
+
+The document can then be built with `make clean all`.
+
 ==== Other platforms
 
 Please install Ruby 2.4+, and just run `make clean all` which will
 install the required gems, and build the document automatically.
-
 
 === Usage
 
