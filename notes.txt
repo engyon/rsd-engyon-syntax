@@ -371,20 +371,99 @@ Right, I’m no expert but it’s something we can do.
 
 Agree. With change sets and transforms there is a need for “chaining” or “versioning” too.
 [Quoted text hidden]
-Markku-Juhani Olavi Saarinen <mjos@iki.fi>	Tue, Jul 3, 2018 at 12:02 PM
+
+
+
+Markku-Juhani Olavi Saarinen <mjos@iki.fi>	Thu, Jul 5, 2018 at 11:05 AM
 To: Ronald Tse <tse@ribose.com>
-Hi Ronald,
+Ronald,
 
-I've recently migrated much of my new stuff from github to gitlab,
-mainly because they have free private repos. If you let me know your
-gitlab account name (or project group name etc) I can grant direct
-access to relevant stuff as I work on it.
+This is just to let you know about my early considerations in order to
+get to experiment with the actual crypto without getting too stuck
+with document structure abstractions.
 
-I can make the thing fully public (and perhaps change over to github)
-just a little bit later.
+In my initial "conceptualizing and prototyping" work I am just
+thinking how one would add some advanced cryptographic access control
+features to and arbitrary-format text document such as markdown or C
+source that is still easy to edit in a text editor. The grand XML (or
+whatever) can come later, however that is already implicitly supported
+here since it is text too.
+
+One cannot edit encrypted text, so the main tool simply renders a the
+document from one access control scope to an another. Let's say that
+"sheriffs" is an access control list that requires a group key,
+defined by context. Often this would be a classification level, a
+project name or company name. Filenames have that scope in the
+beginning to emphasise their importance, e.g. sheriffs-yabba.txt.
+
+My own annotations are inside <( blocs )>, and <( pre
+magic_word_or_symbol )> means that the parser doesn't care what the
+the text says until magic_word_or_symbol appears. I think this is
+pretty universal. One would of course include such statements inside a
+comment block of whatever format you are using (my tool doesn't care).
+A confidential document can have
+
+<( key sheriffs )>  or, using html/markdown comment block, <!-- <( key
+sheriffs )> -->
+
+Which means that everything after that line until <( unkey secret )>
+is intended to have access control limited to secret. You can include
+a key within a key for more refined access control.
+
+When rendered to an unclassified, the document may suddenly have a
+paragraph replaced by
+
+<( inc sheriffs addef7cf16fd3a5...81962 )>
+
+That blob is in object storage (a bunch of files in an object storage
+directory), and the "sheriffs" is a context-specific shorthand for
+access control (a specific symmetric key, which is derived via some
+more advanced way). Therefore edits made in a confidential doc can be
+rendered back into a secret doc.
+
+On Thu, Jul 5, 2018 at 7:17 AM Ronald Tse <tse@ribose.com> wrote:
+
+> Regarding CAS:
+>
+> CAS is an excellent approach but do we need to embed some sort of structural reference?
+
+I was looking into git as an example of a CAS-based distributed system
+that has been designed to deal efficiently with diffs. All data is
+"objects" that are referred to by their hashes, so this it is a pure
+CAS. Diffs are used to derive one revision (hash) from another.
+https://git-scm.com/book/en/v2/Git-Internals-Git-Objects
+
+Git of course doesn't really care about the contents or structure of
+the files it's dealing with, just type (text vs other). Our documents
+already have structure that we can use and that indeed needed for
+encryption since no diffs can be made from encrypted data, and the
+system should know that.
+
+> In documents often there is some structural stability, such that there is value to knowing the content changes within a section, and that occurs more often than the changes in document structure. Diffs across sections generally aren’t as useful than diffs within sections (it is not always as such, e.g. splitting a section into two with the same text).  (actually I don’t know if this statement true)
+
+We would probably like to have a workflow where not just entire
+documents but also little modifications can be efficiently sent over
+e-mail.
+
+> For example, if you compare two standard documents, it is preferable to say “clause 1.1” has been modified from X to Y, rather than “clause 1.1” was replaced (if the entire clause 1.1 is CAS without a stable reference).
+
+Yes, diffs are two-way pieces of information that allow you to not
+only transform A to B but also transform B back to A. This is
+important in all version control.
+[Quoted text hidden]
+Markku-Juhani Olavi Saarinen <mjos@iki.fi>	Thu, Jul 5, 2018 at 11:10 AM
+To: Ronald Tse <tse@ribose.com>
+Hi,
+
+Sorry for a confusing typo.. what i meant was that between <(key
+sheriffs)> and <(unkey sheriffs)>, everything is intended to be
+limited to "sheriffs" access control.
+
+I earlier used "secret" instead of "sheriffs" but that sounded too
+much like it's a static keyword rather than an arbitrary name for an
+access control list.
 
 Cheers,
 - markku
 
 Dr. Markku-Juhani O. Saarinen <mjos@iki.fi>
-[Quoted text hidden]
