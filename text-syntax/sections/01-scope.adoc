@@ -1,0 +1,8 @@
+
+[[scope]]
+== Scope
+
+This document defines a textual representation of the Engyon secure
+document model.
+
+(TODO.)

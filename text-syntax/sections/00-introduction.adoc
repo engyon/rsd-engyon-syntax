@@ -1,0 +1,34 @@
+
+[[introduction]]
+== Introduction
+
+Ribose has developed a document model called "`BasicDoc`" (better name search in progress). It is basically a data model to represent a textual document, supports localization and change set (i.e. collaborative editing) features.
+
+This model relies on a bibliographic data model called Relaton.
+
+BasicDoc: https://github.com/riboseinc/basicdoc-models
+
+BasicDoc has an adaptation that is further in progress, called
+Metanorma. Metanorma is a document model for "`Standard documents`",
+such as ISO standards, etc. It has already been adopted as the
+"`standard model`" by a number of standards bodies, including
+CalConnect, Cloud Security Alliance. It is one of the accepted ways to
+publish at the IETF (its AsciiDoc variant, called AsciiRFC), M3AAWG,
+and at the Standards Administration of China.
+
+Metanorma: https://github.com/riboseinc/metanorma-model-standoc
+
+BasicDoc forms the basis for the Engyon Secure Document Model.
+
+The secure document model is meant to achieve the following:
+
+* a static file result — similar to a Word document, a standalone document that can be transmitted such as via email
+* protects content and metadata of the document (confidentiality, integrity, authenticity)
+* supports partial authenticity and encryption, i.e. a confidential document may contain publicly accessible content and metadata too. BasicDoc is a hierarchical data model, there are document sections, blocks, paragraphs, text, etc., so it can protect only the necessary parts of the document. This could also work as redaction of content.
+* supports information classification and labelling
+* supports secure change set features, such as encrypted sharing + patching (since BasicDoc supports patching)
+* supports a text-based workflow (it’s more up to the toolchain, but we still want text editors to be useful, vs a Word doc that is not editable without Word)
+* supports an end-to-end cloud-based workflow, for features such as expiry, access revocation, auditing
+* potential wish list: one-time access; time-based access (allowed to read in some future timeframe); content watermarking (for printing)
+
+Engyon is greek for "`guarantee`".

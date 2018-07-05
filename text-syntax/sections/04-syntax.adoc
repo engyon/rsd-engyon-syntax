@@ -1,0 +1,56 @@
+
+[[syntax]]
+== Text syntax
+
+In my initial "conceptualizing and prototyping" work I am just
+thinking how one would add some advanced cryptographic access control
+features to and arbitrary-format text document such as markdown or C
+source that is still easy to edit in a text editor. The grand XML (or
+whatever) can come later, however that is already implicitly supported
+here since it is text too.
+
+One cannot edit encrypted text, so the main tool simply renders a the
+document from one access control scope to an another. Let's say that
+"sheriffs" is an access control list that requires a group key,
+defined by context. Often this would be a classification level, a
+project name or company name. Filenames have that scope in the
+beginning to emphasise their importance, e.g. sheriffs-yabba.txt.
+
+My own annotations are inside <( blocs )>, and <( pre
+magic_word_or_symbol )> means that the parser doesn't care what the
+the text says until magic_word_or_symbol appears. I think this is
+pretty universal. One would of course include such statements inside a
+comment block of whatever format you are using (my tool doesn't care).
+
+A confidential document can have
+
+[source]
+----
+<( key sheriffs )>
+----
+
+Or, using html/markdown comment block:
+
+[source]
+----
+<!-- <( key sheriffs )> -->
+----
+
+Which means that everything after that line until <( unkey secret )>
+is intended to have access control limited to secret. You can include
+a key within a key for more refined access control.
+
+When rendered to an unclassified, the document may suddenly have a
+paragraph replaced by
+
+[source]
+----
+<( inc sheriffs addef7cf16fd3a5...81962 )>
+----
+
+That blob is in object storage (a bunch of files in an object storage
+directory), and the "sheriffs" is a context-specific shorthand for
+access control (a specific symmetric key, which is derived via some
+more advanced way). Therefore edits made in a confidential doc can be
+rendered back into a secret doc.
+

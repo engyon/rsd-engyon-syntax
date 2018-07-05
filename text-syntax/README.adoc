@@ -1,0 +1,41 @@
+== Draft specification for the Engyon text syntax
+
+=== Prerequisites / Installation
+
+This specification is built using Metanorma, which relies on a Ruby
+workflow (version 2.4+).
+
+==== macOS
+
+If you're on macOS, just run the
+https://github.com/riboseinc/metanorma-macos-setup[Metanorma install script]:
+
+[source,sh]
+----
+bash <(curl -s https://raw.githubusercontent.com/riboseinc/metanorma-macos-setup/master/metanorma-setup)
+----
+
+==== Other platforms
+
+Please install Ruby 2.4+, and just run `make clean all` which will
+install the required gems, and build the document automatically.
+
+
+=== Usage
+
+Run this to generate the RSD HTML.
+
+[source,sh]
+----
+make clean all
+----
+
+Which you can open with:
+
+[source,sh]
+----
+make open
+# or
+# open rsd-*.html
+----
+

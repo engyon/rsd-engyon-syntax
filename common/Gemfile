@@ -1,0 +1,5 @@
+source "https://rubygems.org"
+
+gem "metanorma"
+gem "asciidoctor-rsd", git: "https://github.com/riboseinc/asciidoctor-rsd"
+

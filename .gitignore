@@ -1,0 +1,5 @@
+.DS_Store
+*.html
+_images
+*_files
+.tmp.xml

@@ -1,0 +1,79 @@
+[[terms]]
+== Terms, definitions, symbols and abbreviated terms
+
+=== Terms and definitions
+
+==== Secure document
+
+document protected against unauthorized access
+
+==== Semi-honest
+
+honest in performing operations, but curious and may try to steal
+data
+
+==== user
+
+person that utilizes a service
+
+==== access control
+
+TODO.
+
+==== author
+
+TODO.
+
+==== role
+
+TODO.
+
+==== classification
+
+TODO.
+
+==== classification label
+
+TODO.
+
+==== content addressable storage
+
+TODO.
+
+==== forward secrecy
+
+method such that user of revoked access is unable to access data
+created after access revocation
+
+NOTE: Refer to <<RFC7525,section 6.3>>
+
+//https://tools.ietf.org/html/rfc7525#section-6.3
+
+==== public key infrastructure
+alt:[PKI]
+
+TODO.
+
+==== blockcipher
+
+encryption algorithm that encrypts a plaintext into an equivalent
+sized ciphertext, using an identical key for encryption and
+decryption
+
+
+=== Symbols
+
+stem:[E(K, m)]::
+  Encryption of the message stem:[m] using a key of an asymmetric keypair stem:[K]
+
+stem:[D(K, m)]::
+  Decryption of the message stem:[m] using a key of an asymmetric keypair stem:[K]
+
+stem:[BCE(K, m)]::
+  Symmetric encryption, through the blockcipher stem:[BC], of the message
+  stem:[m] using the key stem:[K]
+
+stem:[BCD(K, m)]::
+  Symmetric decryption, through the blockcipher stem:[BC], of the message
+  stem:[m] using the key stem:[K]
+

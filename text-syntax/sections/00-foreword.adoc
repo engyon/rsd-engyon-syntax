@@ -1,0 +1,24 @@
+
+.Foreword
+
+Ribose is the asymmetric security company.
+
+Ribose Group Inc. ("Ribose") is global developer of _asymmetric security_ technologies across user-centric systems and applications.
+
+Ribose works closely with international organizations such as ISO, CalConnect and the Cloud Security Alliance.
+
+The procedures used to develop this document and those intended for its further maintenance are described in the Ribose Standardization Directives.
+
+In particular the different approval criteria needed for the different types of Ribose documents should be noted. This document was drafted in accordance with the
+editorial rules of the Ribose Standardization Directives.
+
+Attention is drawn to the possibility that some of the elements of this
+document may be the subject of patent rights. Ribose shall not be held responsible
+for identifying any or all such patent rights. Details of any patent rights
+identified during the development of the document will be in the Introduction.
+
+Any trade name used in this document is information given for the convenience
+of users and does not constitute an endorsement.
+
+This document was prepared by the Ribose Committee _{technical-committee}_.
+

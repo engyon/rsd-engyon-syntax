@@ -1,0 +1,6 @@
+
+[bibliography]
+== Bibliography
+
+* [[[RSASHARE,Shared generation of RSA keys]]] Michael Malkin, Thomas D. Wu, Dan Boneh. _Experimenting with Shared Generation of RSA keys_. NDSS 1999.
+

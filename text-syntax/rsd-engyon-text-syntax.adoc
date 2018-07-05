@@ -1,0 +1,24 @@
+= Engyon -- Plain text representation
+:docnumber: XXXXX
+:edition: 1
+:ref-docnumber: RS 12001:2018(E)
+:copyright-year: 2018
+:revdate: 20180706T00:00:00Z
+:language: en
+:script: Latn
+:title: Secure document technology -- Engyon document model -- Plain text representation
+:doctype: standard
+:status: draft-standard
+:technical-committee: Security
+:draft:
+:toc:
+:stem:
+:xrefstyle: short
+
+include::sections/00-foreword.adoc[]
+include::sections/00-introduction.adoc[]
+include::sections/01-scope.adoc[]
+include::sections/02-normrefs.adoc[]
+include::sections/03-terms.adoc[]
+include::sections/04-syntax.adoc[]
+include::sections/98-bibliography.adoc[]
