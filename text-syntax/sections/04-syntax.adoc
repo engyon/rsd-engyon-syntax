@@ -5,7 +5,7 @@ Engyon Protected Text (EPT) is a human-editable annotation method that allows a 
 
 EPT annotation is contained in comments so that it does not affect rendering or compilation of the document.
 
-* *Classified* sections are encrypted if the document is in _unclassified state_. 
+* *Classified* sections are encrypted with an AEAD algorithm if the document is in _unclassified state_. 
  
 * *Signed* sections are protected by a signature and can't be modified without detection. 
 
@@ -52,7 +52,7 @@ There is a helper notation which does not offer direct cryptographic confidentia
 // <( MUTABLE Approved-May )>
 ----
 
-When ran through the parser with appropriate parameters the contents of the block marked `"Approved-May"` can be hidden from view and replaced by a simple object reference to the hash of its "muted" contents:
+When ran through the parser with appropriate parameters the contents of the block marked "Approved-May" can be hidden from view and replaced by a simple object reference to the hash of its "muted" contents:
 ----
 // <( MUTED Approved-May sha384=DC910F5E499F8BE84488D.. )>
 ----
@@ -117,7 +117,7 @@ When the document is unclassified (i.e. the protect tool is ran on it), the CLAS
 ----
 //  <( CLASSIFIED Deputies aes256siv:base64=0mlH0RxyPOf8b1r.. )> 
 ----
-Since an authenticated encryption algorithm is used, any modification to the corciphertext will be detected (
+Since an authenticated encryption algorithm is used, any modification to the ciphertext can be detected (actually making recovery of any plaintext impossible).
 
 
 or if a hash reference is used,
