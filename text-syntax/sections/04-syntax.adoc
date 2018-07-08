@@ -5,9 +5,9 @@ Engyon Protected Text (EPT) is a human-editable annotation method that allows a 
 
 EPT annotation is contained in comments so that it does not affect rendering or compilation of the document.
 
-* *Classified* sections are encrypted if the document is in _unclassified state_.
+* *Classified* sections are encrypted if the document is in _unclassified state_. 
  
-* *Signed* sections are integrity protected by a signature and can't be modified without detection. 
+* *Signed* sections are protected by a signature and can't be modified without detection. 
 
 An initial non-integrated version of Engyon "protect" tools takes a form of a single-pass parser that allows a text-format documents to be reversibly transformed between different classification levels. The same tool can also be used to verify and create signatures inside the document.
 
@@ -103,7 +103,7 @@ A key shorthand does not need to be globally unique; we may use UNKEY and UNCERT
 
 === Classified Blocks
 
-A block of text can be marked as needing confidentiality protection if it is enclosed between CLASSIFY and UNCLASSIFY statements. In addition to the CLASSIFY / UNCLASSIFY keyword, such statements contain a short name of a shared confidentiality group. A confidentiality group name always maps to a context-specific secret symmetric key. 
+A block of text can be marked as needing confidentiality protection if it is enclosed between CLASSIFY and UNCLASSIFY statements. Such statements also contain a short name of a shared confidentiality group. A confidentiality group name maps to a context-specific secret symmetric key. 
 
 In this example a short text is classified to the "Deputies" group. This is the classified version of the block.
 ----
@@ -117,6 +117,9 @@ When the document is unclassified (i.e. the protect tool is ran on it), the CLAS
 ----
 //  <( CLASSIFIED Deputies aes256siv:base64=0mlH0RxyPOf8b1r.. )> 
 ----
+Since an authenticated encryption algorithm is used, any modification to the corciphertext will be detected (
+
+
 or if a hash reference is used,
 ----
 //  <( CLASSIFIED Deputies aes256siv:sha384=DC910F5E499F8B... )> 
@@ -163,7 +166,7 @@ A baseline set of supported default algorithms is defined, consisting of AES-256
 It is desirable that the cryptographic transformations are completely deterministic,  so that the same input text will always yield the same ciphertext and therefore the same ciphertext hash. This is not a requirement in all of the above mentioned standards, but with appropriate mode selection and deterministic random number generation this should be achievable.
 
 
-==== Symmetric Encryption
+==== Symmetric Authenticated Encryption
 
 It may be desirable to use a standardized lossless compression technique such as DEFLATE [RFC 1951] to compress text sections before encryption.
 
