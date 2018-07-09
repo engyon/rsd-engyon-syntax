@@ -19,9 +19,11 @@ Note that the EPT markup can be used in all parts of the document and across dif
 === EPT Statement
 
 An EPT statement is enclosed by a left separator `LEFT_SEP` and right separator `RIGHT_SEP`, so that the EPT statement itself appears as
+
 ----
   <( STATEMENT )> 
 ----
+
 in the editable text. The annotation can use the comments feature of a host language so that these markings do not affect the rendering or compilation of the document. Some examples:
 
 |===
@@ -45,20 +47,25 @@ EPT supports Content Addressed Storage (CAS) to abbreviate documents for editing
 
 All references within an EPT are fully unambiguous -- the reference alone fully specifies what is being referenced. Therefore there cannot be an EPT reference by the contents of a filename or a web address. This is needed to guarantee that signatures are well defined. It is always possible to "open up" an EPT document (up to the viewers' access level anyway.)
 
-There is a helper notation which does not offer direct cryptographic confidentiality or integrity protection, but still helps to avoid accidental changes to static parts of a document. This is accomplished by enclosing them in an IMMUTABLE / MUTABLE block construct.
+There is a helper notation which does not offer proper cryptographic confidentiality or integrity protection, but still helps to avoid accidental changes to static parts of a document. This is accomplished by enclosing them in an IMMUTABLE / MUTABLE block construct.
+
 ----
-// <( IMMUTABLE Approved-May )>
+// <( IMMUTABLE Approved-May sha384=DC910F5E499F8BE84488D.. )>
 (c) 2018 Ribose Inc. Any trade name used in this document .. 
 // <( MUTABLE Approved-May )>
 ----
 
-When ran through the parser with appropriate parameters the contents of the block marked "Approved-May" can be hidden from view and replaced by a simple object reference to the hash of its "muted" contents:
+The protect tool can be used to update and verify hash values in order to protect them from accidential modifications.
+
+When ran through the parser with appropriate parameters the contents of the block marked "Approved-May" can also be hidden from view and replaced by a simple object reference to the hash of its "muted" contents:
+
 ----
 // <( MUTED Approved-May sha384=DC910F5E499F8BE84488D.. )>
 ----
+
 Often such blobs are stored in local object storage, e.g. a directory with files whose filenames match with a hexadecimal hash of their contents. Such objects can also be shared via a cloud service or using peer-to-peer methods. Content addressed storage implies nothing about the storage or transport technologies used to fetch an object.
 
-If classified segment is muted, it is stored in ciphertext form. 
+If there are CLASSIFY/UNCLASSIFY blocks the hash is computed over their ciphertext representation, e.g. exactly as if they were CLASSIFIED sections. This ciphertext format is also used to store muted blocks.
 
 
 === Group keys
@@ -106,21 +113,26 @@ A key shorthand does not need to be globally unique; we may use UNKEY and UNCERT
 A block of text can be marked as needing confidentiality protection if it is enclosed between CLASSIFY and UNCLASSIFY statements. Such statements also contain a short name of a shared confidentiality group. A confidentiality group name maps to a context-specific secret symmetric key. 
 
 In this example a short text is classified to the "Deputies" group. This is the classified version of the block.
+
 ----
 // <( CLASSIFY Deputies aes256siv )> 
 Confidential Source 13 is Mallory.
 // <( UNCLASSIFY Deputies )>
 ----
+
 The third parameter in a CLASSIFY statement is the preferred algorithm to be used, e.g. "aes256siv" for AES-256 in SIV mode.
 
 When the document is unclassified (i.e. the protect tool is ran on it), the CLASSIFY / UNCLASSIFY block is encrypted with the group key "Deputies". Its contents are replaced by a single CLASSIFIED statement, name of the same group key and either the a base64 representation of the ciphertext or a hash reference to it.
+
 ----
 //  <( CLASSIFIED Deputies aes256siv:base64=0mlH0RxyPOf8b1r.. )> 
 ----
+
 Since an authenticated encryption algorithm is used, any modification to the ciphertext can be detected (actually making recovery of any plaintext impossible).
 
 
-or if a hash reference is used,
+A hash reference to the hasah of the ciphretext blob can also be used:
+
 ----
 //  <( CLASSIFIED Deputies aes256siv:sha384=DC910F5E499F8B... )> 
 ----
@@ -133,6 +145,7 @@ The storage of the encrypted blobs is left to the implementation, but they can b
 === Signed (integrity-protected) blocks
 
 Blocks that are are integrity protected are limited by SIGNED / SIGNATURE statements. 
+
 ----
 // <( SIGNED Alice ecdsap384 )>
 A reward of $3.14 is offered for information leading to arrest of Bob.
@@ -140,6 +153,7 @@ A reward of $3.14 is offered for information leading to arrest of Bob.
 ----
 
 Alternatively to the signature itself being contained in the document, a hash reference may be used here too.
+
 ----
 // <( SIGNED Bob ecdsap384 )>
 Eve did it, she is Evil.
@@ -147,6 +161,7 @@ Eve did it, she is Evil.
 ----
 
 Signature blocks can be inside or outside of classified blocks, allowing classified signatures and signature verification of mixed unclassified / classified data. Also signing a muted block allows a detached signature to be generated:
+
 ----
 <( SIGNED Carol ecdsap384 )>
 <( MUTED sha384=A206AD1D11C61BE8B5423DCBE.. )>
