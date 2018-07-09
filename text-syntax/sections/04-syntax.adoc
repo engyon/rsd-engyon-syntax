@@ -30,7 +30,7 @@ in the editable text. The annotation can use the comments feature of a host lang
 | Format 				| `LEFT_SEP`	 	| `RIGHT_SEP` 
 
 | Raw text format		| `"\n<("`,     	| `")>"`
-| AsciiDoc and C++,		| `"\n// <("`	  	| `")>"`
+| AsciiDoc and C++ code	| `"\n// <("`	  	| `")>"`
 | MarkDown, XML, HTML	| `"<-- <("`		| `")> -->"`
 | (La)TeX and similar	| `"\n% <("`		| `")>"`
 |===
