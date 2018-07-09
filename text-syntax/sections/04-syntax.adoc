@@ -168,7 +168,7 @@ Signature blocks can be inside or outside of classified blocks, allowing classif
 <( SIGNATURE Carol ecdsap384:sha384=C1A2D3E33CC6928BE5CD.. )>
 ----
 
-For purposes of computing the signature hash, all MUTABLE and CLASSIFIED blocks are replaced by their hashed content representation (`<( CLASSIFIED name alg=01234.. 0)`). This may or may not require encryption but allows the signature the same signature to be valid for both classified and unclassified versions of the document.
+For purposes of computing the signature hash, all MUTABLE and CLASSIFIED blocks are replaced by their hashed content representation (`<( CLASSIFIED name alg=01234.. )>`). This may or may not require encryption but allows the signature the same signature to be valid for both classified and unclassified versions of the document.
 
 
 
