@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rsd-standard xmlns="https://open.ribose.com/standards/rsd">
+<bibdata type="standard">
+  <title language="en" format="text/plain">Secure document — Engyon — Plain text representation</title>
+  <docidentifier type="rsd">XXXXX(d):2018</docidentifier>
+  <docnumber>XXXXX</docnumber>
+  <contributor>
+    <role type="author"/>
+    <organization>
+      <name>Ribose</name>
+    </organization>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>Ribose</name>
+    </organization>
+  </contributor>
+  <language>en</language>
+  <script>Latn</script>
+  <status format="plain">draft-standard</status>
+  <copyright>
+    <from>2018</from>
+    <owner>
+      <organization>
+        <name>Ribose</name>
+      </organization>
+    </owner>
+  </copyright>
+  <editorialgroup>
+    <committee/>
+  </editorialgroup>
+</bibdata><version>
+  <edition>1</edition>
+  <revision-date>20180706T00:00:00Z</revision-date>
+  
+</version>
+<preface><foreword obligation="informative"><title>Foreword</title><p id="_22dc1275-6cdf-4685-af3e-381ec5acd074">Ribose is the asymmetric security company.</p>
+<p id="_db5b3cab-b5ef-4983-b233-f8ec7296601e">Ribose Group Inc. ("Ribose") is global developer of <em>asymmetric security</em> technologies across user-centric systems and applications.</p>
+<p id="_65ab6647-c520-499d-a0b4-afdee00ea23d">Ribose works closely with international organizations such as ISO, CalConnect and the Cloud Security Alliance.</p>
+<p id="_86300119-14e2-4633-b3c8-5f7df8c13789">The procedures used to develop this document and those intended for its further maintenance are described in the Ribose Standardization Directives.</p>
+<p id="_03fef831-8578-4c73-8aba-e23623662447">In particular the different approval criteria needed for the different types of Ribose documents should be noted. This document was drafted in accordance with the
+editorial rules of the Ribose Standardization Directives.</p>
+<p id="_d0e3a593-aa64-47e7-aeb1-14a6073088c5">Attention is drawn to the possibility that some of the elements of this
+document may be the subject of patent rights. Ribose shall not be held responsible
+for identifying any or all such patent rights. Details of any patent rights
+identified during the development of the document will be in the Introduction.</p>
+<p id="_c3a72ecb-b5f5-4822-bd0c-cfe12b229c3c">Any trade name used in this document is information given for the convenience
+of users and does not constitute an endorsement.</p>
+<p id="_64133012-b325-494e-916f-fea31a34132c">This document was prepared by the Ribose Committee <em>Security</em>.</p></foreword><introduction id="introduction" obligation="informative"><title>Introduction</title><p id="_a0492feb-9205-45c9-8add-88c7ae402d6d">Ribose has developed a document model called "BasicDoc" (better name search in progress). It is basically a data model to represent a textual document, supports localization and change set (i.e. collaborative editing) features.</p>
+<p id="_d30e6191-4310-4eae-8b01-7be5293557b6">This model relies on a bibliographic data model called Relaton.</p>
+<p id="_9e5426ec-e97f-40c4-8d8b-c12ec040d94e">BasicDoc: <link target="https://github.com/riboseinc/basicdoc-models"/></p>
+<p id="_2e7e2915-e3e8-4419-9f22-1ad20f70d6b7">BasicDoc has an adaptation that is further in progress, called
+Metanorma. Metanorma is a document model for "Standard documents",
+such as ISO standards, etc. It has already been adopted as the
+"standard model" by a number of standards bodies, including
+CalConnect, Cloud Security Alliance. It is one of the accepted ways to
+publish at the IETF (its AsciiDoc variant, called AsciiRFC), M3AAWG,
+and at the Standards Administration of China.</p>
+<p id="_2c0201dd-63f1-43ff-9c07-4db7ed0d1bee">Metanorma: <link target="https://github.com/riboseinc/metanorma-model-standoc"/></p>
+<p id="_9db62808-e841-42b1-92ef-e53357628bfa">BasicDoc forms the basis for the Engyon Secure Document Model.</p>
+<p id="_e11656a4-93f0-4c5a-91c2-e0af6cadf264">The secure document model is meant to achieve the following:</p>
+<ul id="_03623cc6-1527-464e-aa0e-40d9ca3d9138">
+  <li>
+    <p id="_e249d8d1-ebbc-4b6f-b277-988567e7fb04">a static file result — similar to a Word document, a standalone document that can be transmitted such as via email</p>
+  </li>
+  <li>
+    <p id="_a6249376-ddeb-49a1-90f5-beffd5473279">protects content and metadata of the document (confidentiality, integrity, authenticity)</p>
+  </li>
+  <li>
+    <p id="_5b074251-444f-410b-a2aa-dc9eb35aaee1">supports partial authenticity and encryption, i.e. a confidential document may contain publicly accessible content and metadata too. BasicDoc is a hierarchical data model, there are document sections, blocks, paragraphs, text, etc., so it can protect only the necessary parts of the document. This could also work as redaction of content.</p>
+  </li>
+  <li>
+    <p id="_0bd29755-7d52-489e-a067-e5c9b98c26bc">supports information classification and labelling</p>
+  </li>
+  <li>
+    <p id="_2e3f48fb-bd2d-494f-ae89-9c72f64ac4af">supports secure change set features, such as encrypted sharing + patching (since BasicDoc supports patching)</p>
+  </li>
+  <li>
+    <p id="_a6d0a6ac-2dc2-46a4-969d-8d2e54db60ba">supports a text-based workflow (it’s more up to the toolchain, but we still want text editors to be useful, vs a Word doc that is not editable without Word)</p>
+  </li>
+  <li>
+    <p id="_bf145d83-c878-451a-a0cc-ed90b202b808">supports an end-to-end cloud-based workflow, for features such as expiry, access revocation, auditing</p>
+  </li>
+  <li>
+    <p id="_f650087f-a729-49b1-bec4-dca287b10b78">potential wish list: one-time access; time-based access (allowed to read in some future timeframe); content watermarking (for printing)</p>
+  </li>
+</ul>
+<p id="_b78a377d-8181-4e38-9f49-ef8881a98673">Engyon is greek for "guarantee".</p></introduction></preface><sections>
+
+<clause id="scope" obligation="normative"><title>Scope</title><p id="_4b0cc362-e0ab-453e-b5c8-3cdaab41561d">This document defines a textual representation of the Engyon secure
+document model.</p>
+<p id="_381754b8-366e-4123-9ce9-573f636a6fb2">(TODO.)</p></clause>
+
+<clause id="terms" obligation="normative"><title>Terms and definitions</title><terms id="_terms_and_definitions" obligation="normative"><title>Terms and definitions</title><term id="_secure_document">
+  <preferred>Secure document</preferred>
+  <definition><p id="_7a2be257-3af1-4ae0-a05a-4e873354ced5">document protected against unauthorized access</p></definition>
+</term>
+<term id="_semi_honest">
+  <preferred>Semi-honest</preferred>
+  <definition><p id="_7c032d63-324e-4d21-8f29-46a3013d19b8">honest in performing operations, but curious and may try to steal
+data</p></definition>
+</term>
+<term id="_user">
+  <preferred>user</preferred>
+  <definition><p id="_91e7579c-73cd-4395-b8c5-ae4f11c6af8b">person that utilizes a service</p></definition>
+</term>
+<term id="_access_control">
+  <preferred>access control</preferred>
+  <definition><p id="_cb7a6ac9-24a7-4a51-b42a-7dcec4c13227">TODO.</p></definition>
+</term>
+<term id="_author">
+  <preferred>author</preferred>
+  <definition><p id="_b6c3e233-06d1-49a1-8635-90ce72f4ff7c">TODO.</p></definition>
+</term>
+<term id="_role">
+  <preferred>role</preferred>
+  <definition><p id="_e111c08b-8914-4c2c-8a37-6ab78c5e09f4">TODO.</p></definition>
+</term>
+<term id="_classification">
+  <preferred>classification</preferred>
+  <definition><p id="_88d38803-299b-4b4f-9146-5faf7cb9bc07">TODO.</p></definition>
+</term>
+<term id="_classification_label">
+  <preferred>classification label</preferred>
+  <definition><p id="_b0b312a3-9311-4a36-9a8c-fea327b5edde">TODO.</p></definition>
+</term>
+<term id="_content_addressable_storage">
+  <preferred>content addressable storage</preferred>
+  <definition><p id="_42d86c08-84a3-4677-a212-16560e6c7946">TODO.</p></definition>
+</term>
+<term id="_forward_secrecy"><preferred>forward secrecy</preferred><definition><p id="_4c04b6f5-65fb-4d01-a407-0b43597f9f19">method such that user of revoked access is unable to access data
+created after access revocation</p></definition>
+<termnote id="_25361bc6-43b6-40a6-ae95-fd50ed7fe5ad">
+  <p id="_a3903c8c-98da-42e0-89ee-a272f767ef59">Refer to <xref target="RFC7525">section 6.3</xref></p>
+</termnote></term>
+<term id="_public_key_infrastructure"><preferred>public key infrastructure</preferred>
+  <admitted>PKI</admitted>
+
+<definition><p id="_b6876d82-08d1-420e-8a58-2b17771c4721">TODO.</p></definition></term>
+<term id="_blockcipher">
+  <preferred>blockcipher</preferred>
+  <definition><p id="_ed974f48-a408-4fca-b5b3-502d0ff6cae8">encryption algorithm that encrypts a plaintext into an equivalent
+sized ciphertext, using an identical key for encryption and
+decryption</p></definition>
+</term></terms>
+<definitions id="_symbols">
+  <dl id="_9dede718-46ba-40dd-9f62-c3eee729d4af">
+  <dt>
+    <stem type="AsciiMath">E(K, m)</stem>
+  </dt>
+  <dd>
+    <p id="_cb6c0642-8df0-494b-b166-d4777fcc69e7">Encryption of the message <stem type="AsciiMath">m</stem> using a key of an asymmetric keypair <stem type="AsciiMath">K</stem></p>
+  </dd>
+  <dt>
+    <stem type="AsciiMath">D(K, m)</stem>
+  </dt>
+  <dd>
+    <p id="_060e1b09-3c7b-44f1-8606-3c12921efd0a">Decryption of the message <stem type="AsciiMath">m</stem> using a key of an asymmetric keypair <stem type="AsciiMath">K</stem></p>
+  </dd>
+  <dt>
+    <stem type="AsciiMath">BCE(K, m)</stem>
+  </dt>
+  <dd>
+    <p id="_ac96b2e9-d0c2-44ad-ba69-96fa00a10707">Symmetric encryption, through the blockcipher <stem type="AsciiMath">BC</stem>, of the message
+<stem type="AsciiMath">m</stem> using the key <stem type="AsciiMath">K</stem></p>
+  </dd>
+  <dt>
+    <stem type="AsciiMath">BCD(K, m)</stem>
+  </dt>
+  <dd>
+    <p id="_6bfdf9ef-1530-4831-8523-593565c1aa39">Symmetric decryption, through the blockcipher <stem type="AsciiMath">BC</stem>, of the message
+<stem type="AsciiMath">m</stem> using the key <stem type="AsciiMath">K</stem></p>
+  </dd>
+</dl>
+</definitions></clause>
+<clause id="syntax" obligation="normative"><title>Engyon Protected Text</title><p id="_087abd01-cddb-4e45-b70f-37c1d82cdcab">Engyon Protected Text (EPT) is a human-editable annotation method that allows a text format document to contain finely grained cryptographic confidentiality and integrity features. It allows parties with different access parameters (e.g. clearance) to collaboratively work on the same document.</p>
+<p id="_936e5f1e-84da-456a-9580-691f5e4b038d">EPT annotation is contained in comments so that it does not affect rendering or compilation of the document.</p>
+<ul id="_934b7087-6c72-43d8-a3d2-d73ee2a8883e">
+  <li>
+    <p id="_779447bf-c194-4536-9359-39dc585e608b"><strong>Classified</strong> sections are encrypted with an AEAD algorithm if the document is in <em>unclassified state</em>.</p>
+  </li>
+  <li>
+    <p id="_35e8fe7a-5b82-4e7a-bf1d-5852cc12c5ab"><strong>Signed</strong> sections are protected by a signature and can’t be modified without detection.</p>
+  </li>
+</ul>
+<p id="_e0963e2e-cf8a-4dcf-8caa-900c89dcf338">An initial non-integrated version of Engyon "protect" tools takes a form of a single-pass parser that allows a text-format documents to be reversibly transformed between different classification levels. The same tool can also be used to verify and create signatures inside the document.</p>
+<p id="_11bd2242-403f-4e62-be05-7d45679fff16">In practice this allows a (partly or wholly) unclassified version of a document to be automatically created where restricted parts are replaced with invisible references (or with full encrypted blocks) for distribution. Vice versa, one can <em>reclassify</em>  a modified unclassified document, making confidential parts in the document available and editable again. Signatures are verified and updated with the same tool.</p>
+<p id="_f7537c96-5449-452b-ba89-fa87b46c35ac">Note that the EPT markup can be used in all parts of the document and across different document types, including metadata. An unclassified version of a document doesn’t have to include the authors of its classified portions, for example. Furthermore it is possible to construct a browser plugin that unlocks confidential portions of, say, a HTML document with a secret key.</p>
+<clause id="_ept_statement" obligation="normative"><title>EPT Statement</title><p id="_80a581ca-92ae-4ee7-9425-587b8840d673">An EPT statement is enclosed by a left separator <tt>LEFT_SEP</tt> and right separator <tt>RIGHT_SEP</tt>, so that the EPT statement itself appears as</p>
+<sourcecode id="_333027b6-0fe2-486f-b9e6-2fd7bc8f0b11">  &lt;( STATEMENT )&gt;</sourcecode>
+<p id="_0f5c64b7-a9bb-4bac-9231-af447ebede94">in the editable text. The annotation can use the comments feature of a host language so that these markings do not affect the rendering or compilation of the document. Some examples:</p>
+<table id="_073e3fec-0d08-4b31-ab47-ef2758605456">
+  <thead>
+    <tr>
+      <th align="left">Format</th>
+      <th align="left">
+        <tt>LEFT_SEP</tt>
+      </th>
+      <th align="left">
+        <tt>RIGHT_SEP</tt>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left">Raw text format</td>
+      <td align="left"><tt>"\n&lt;("</tt>,</td>
+      <td align="left">
+        <tt>")&gt;"</tt>
+      </td>
+    </tr>
+    <tr>
+      <td align="left">AsciiDoc and C++ code</td>
+      <td align="left">
+        <tt>"\n// &lt;("</tt>
+      </td>
+      <td align="left">
+        <tt>")&gt;"</tt>
+      </td>
+    </tr>
+    <tr>
+      <td align="left">MarkDown, XML, HTML</td>
+      <td align="left">
+        <tt>"&lt;-- &lt;("</tt>
+      </td>
+      <td align="left">
+        <tt>")&gt; --&gt;"</tt>
+      </td>
+    </tr>
+    <tr>
+      <td align="left">(La)TeX and similar</td>
+      <td align="left">
+        <tt>"\n% &lt;("</tt>
+      </td>
+      <td align="left">
+        <tt>")&gt;"</tt>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p id="_31bed43f-9463-4091-bbf2-f72c1a1e7415">The separators are configurable and are determined from file type (extension), if available. The statements are mostly intended to be on their own line, hence the newline (<tt>'\n'</tt>) in <tt>LEFT_SEP</tt>.</p>
+<p id="_818d04b0-99f4-476b-8b93-c0763a99d90c">Such statements define blocks of text (such as a confidential or signed part). Blocks can include other blocks for multi-level access control and/or integrity protection.</p></clause>
+<clause id="_immutable_blocks_and_binary_blobs" obligation="normative"><title>Immutable Blocks and Binary Blobs</title><p id="_4dfb98e6-fbd7-403e-9cfb-169f155f58b7">EPT supports Content Addressed Storage (CAS) to abbreviate documents for editing and transmission. CAS allows non-changing parts of a document to be referred by their contents. We use this system primarily for ciphertext and signature data, but it can be used for arbitrary purposes; for example to include a well known public piece of text such as a standard license agreement.</p>
+<p id="_586626eb-5135-4227-9476-ff6c949cbb0c">All references within an EPT are fully unambiguous — the reference alone fully specifies what is being referenced. Therefore there cannot be an EPT reference by the contents of a filename or a web address. This is needed to guarantee that signatures are well defined. It is always possible to "open up" an EPT document (up to the viewers' access level anyway.)</p>
+<p id="_16600bf7-3320-4652-914f-3bd75b1275f8">There is a helper notation which does not offer proper cryptographic confidentiality or integrity protection, but still helps to avoid accidental changes to static parts of a document. This is accomplished by enclosing them in an IMMUTABLE / MUTABLE block construct.</p>
+<sourcecode id="_2ec3308c-35ec-4511-b4ba-fb4cd7b9996f">// &lt;( IMMUTABLE Approved-May sha384=DC910F5E499F8BE84488D.. )&gt;
+(c) 2018 Ribose Inc. Any trade name used in this document ..
+// &lt;( MUTABLE Approved-May )&gt;</sourcecode>
+<p id="_11c4e03a-756b-48fa-a1e8-9b36fabea022">The protect tool can be used to update and verify hash values in order to protect them from accidential modifications.</p>
+<p id="_294fc304-a2d5-4033-a4bb-1a561f5edc3b">When ran through the parser with appropriate parameters the contents of the block marked "Approved-May" can also be hidden from view and replaced by a simple object reference to the hash of its "muted" contents:</p>
+<sourcecode id="_178a0cd5-2c19-4a01-b361-53dbe9523340">// &lt;( MUTED Approved-May sha384=DC910F5E499F8BE84488D.. )&gt;</sourcecode>
+<p id="_bffd1cc0-bb48-4133-b409-1cecab075b95">Often such blobs are stored in local object storage, e.g. a directory with files whose filenames match with a hexadecimal hash of their contents. Such objects can also be shared via a cloud service or using peer-to-peer methods. Content addressed storage implies nothing about the storage or transport technologies used to fetch an object.</p>
+<p id="_bedfcd24-cf7a-4b3c-b676-8ac8c523181a">If there are CLASSIFY/UNCLASSIFY blocks the hash is computed over their ciphertext representation, e.g. exactly as if they were CLASSIFIED sections. This ciphertext format is also used to store muted blocks.</p></clause>
+<clause id="_group_keys" obligation="normative"><title>Group keys</title><p id="_82ddf250-9486-4624-995d-fe3ea83029fc">Engyon supports both very simple and highly advanced key management features, such as:</p>
+<ul id="_5b70b878-2074-491a-b220-a095800ab3cc">
+  <li>
+    <p id="_5f34a896-6c3f-4072-8e87-982a41d85979">A secret key derived from a passphrase with a key derivation function such as Argon2.</p>
+  </li>
+  <li>
+    <p id="_c9cf017e-a68c-44d7-99a6-60288c4f814a">An access-restricted local secret key file to allow automated processing.</p>
+  </li>
+  <li>
+    <p id="_5fe2faa7-9227-4be4-b54b-d3ab6f81ef41">SmartCards and Hardware Security Modules (HSMs).</p>
+  </li>
+  <li>
+    <p id="_ead6edcc-5bf5-40e2-9e2a-7958afae942a">An online key server or identity provider mechanism such as SAML. This allows access control lists to be centrally managed within an organization.</p>
+  </li>
+  <li>
+    <p id="_c207dfb1-7069-42ff-affd-7fd60bccb4bc">Timed declassification where a trusted third party notary service is used to automatically declassify a document at certain time.</p>
+  </li>
+  <li>
+    <p id="_c29a134d-3fae-413d-8019-03f9b82193d9">k-of-n group control where "k" members of an n-member group are required to decrypt or sign document — e.g. two persons with given security classification.</p>
+  </li>
+</ul>
+<p id="_41db8782-ea86-40a1-ad4f-80f6d0d17bea">Due to the wide spectrum of potential key management methods, a "key" actually refers to a configuration information that specifies how a specific key can be obtained and used. This configuration is specified in Nereon configuration syntax (NOC), which is close to nginx UCL and JSON.</p>
+<p id="_4d984d87-ce7d-4702-93dd-5178ec0495ad">Within the EPT syntax, a shorthand syntax is used for keys. Again, a reference is made to the the contents of the key file of structure. The actual key storage and access is left to the implementation.</p>
+<p id="_375ca177-73d7-4b12-ba9c-1b4a138d5261">Keys must be defined before they are used so typically they are defined in a signed block at the beginning of the document.</p>
+<sourcecode id="_2903b740-38c0-40fd-a808-ba694af8284b">// &lt;( SIGNED ... )&gt;
+// &lt;( KEY Deputies sha384=86716A025E4AAF0347C9.. )&gt;
+// &lt;( CERT Alice sha384=7725AD485A8EBDE97BB04E86C1.. )&gt;
+  .. document body ..
+// &lt;( UNKEY Deputies )&gt;
+// &lt;( SIGNATURE .. )&gt;</sourcecode>
+<p id="_3f335fbd-1505-43dc-be4a-abb154236eb2">Defines that the hash of the key file for "Deputies" classification group and the public key certificate for "Alice" that can be used to verify her signatures.</p>
+<p id="_2c42995e-ae41-4b28-a1c0-218d6f039922">Keys configuration files can be also included in the document itself in base64 format:</p>
+<sourcecode id="_92a8ccf5-72f8-42f7-a52c-ddb5d7805f81">// &lt;( KEY Deputies base64=86716A025E4AAF0347C9.. )&gt;</sourcecode>
+<p id="_45c3e220-ff10-4b2b-9f5f-a1dce0ce6795">This of course makes no sense unless the key format uses e.g. passphrase protection.</p>
+<p id="_386a89c7-a13c-417c-bd65-88ff39209598">A key shorthand does not need to be globally unique; we may use UNKEY and UNCERT statements that cause the parser to forget the reference to a given secret or public key name.</p></clause>
+<clause id="_classified_blocks" obligation="normative"><title>Classified Blocks</title><p id="_e2ef4259-04f6-4a92-9ccb-91e507f81d15">A block of text can be marked as needing confidentiality protection if it is enclosed between CLASSIFY and UNCLASSIFY statements. Such statements also contain a short name of a shared confidentiality group. A confidentiality group name maps to a context-specific secret symmetric key.</p>
+<p id="_5d90c64b-7b02-4897-b21a-0c02ab16a239">In this example a short text is classified to the "Deputies" group. This is the classified version of the block.</p>
+<sourcecode id="_93ec6ccd-4db3-4127-858b-a129466038d3">// &lt;( CLASSIFY Deputies aes256siv )&gt;
+Confidential Source 13 is Mallory.
+// &lt;( UNCLASSIFY Deputies )&gt;</sourcecode>
+<p id="_37724430-415e-4ee9-8bdc-42a1db6a190c">The third parameter in a CLASSIFY statement is the preferred algorithm to be used, e.g. "aes256siv" for AES-256 in SIV mode.</p>
+<p id="_b9e0e2ba-42af-4640-b56c-aa5935337cdc">When the document is unclassified (i.e. the protect tool is ran on it), the CLASSIFY / UNCLASSIFY block is encrypted with the group key "Deputies". Its contents are replaced by a single CLASSIFIED statement, name of the same group key and either the a base64 representation of the ciphertext or a hash reference to it.</p>
+<sourcecode id="_0a651d9a-6805-401a-b55f-d05c36824a4d">//  &lt;( CLASSIFIED Deputies aes256siv:base64=0mlH0RxyPOf8b1r.. )&gt;</sourcecode>
+<p id="_d75c0116-7b27-4f40-8974-b49f88ef015a">Since an authenticated encryption algorithm is used, any modification to the ciphertext can be detected (actually making recovery of any plaintext impossible).</p>
+<p id="_f97de99c-0564-4fa9-9c65-257bfae52059">A hash reference to the hasah of the ciphretext blob can also be used:</p>
+<sourcecode id="_7a532424-46ca-41e9-8d64-0f2d0e6557e8">//  &lt;( CLASSIFIED Deputies aes256siv:sha384=DC910F5E499F8B... )&gt;</sourcecode>
+<p id="_e18ec4a0-fd96-4ac1-a9fb-c71fab9c2995">In practice the hash references are used when distributing the unclassified version to parties who do not have access to the classified information. Conversely, full ciphertext can be included in versions that are distributed to parties that can decrypt the classified data. In both cases the result can be handled as an unclassified document (if contains CLASSIFIED statements instead of CLASSIFY / UNCLASSIFY statements).</p>
+<p id="_818e143c-17f9-4993-81a1-17fcb98ed2cc">The storage of the encrypted blobs is left to the implementation, but they can be simply put in an "objects" folder of current working directory, with the hash as a filename. However this storage does not have to be permanent — the encrypted objects needed for reclassifying a document after edits have been made to its unclassified form can be extracted from an older classified version of the same document.</p></clause>
+<clause id="_signed_integrity_protected_blocks" obligation="normative"><title>Signed (integrity-protected) blocks</title><p id="_c3f511aa-932e-44d9-96cc-dc60ee397588">Blocks that are are integrity protected are limited by SIGNED / SIGNATURE statements.</p>
+<sourcecode id="_7350ca3f-e0fb-4086-b28b-7fec3d1b5fe8">// &lt;( SIGNED Alice ecdsap384 )&gt;
+A reward of $3.14 is offered for information leading to arrest of Bob.
+// &lt;( SIGNATURE Alice ecdsap384:base64=fI3m+vgcovG1Olu31WPVyh.. )&gt;</sourcecode>
+<p id="_d296e63c-004f-4c66-821c-0cb27aa944c6">Alternatively to the signature itself being contained in the document, a hash reference may be used here too.</p>
+<sourcecode id="_79fda2e7-1bb0-4f48-80e6-95ff35da2cda">// &lt;( SIGNED Bob ecdsap384 )&gt;
+Eve did it, she is Evil.
+// &lt;( SIGNATURE Bob ecdsap384:sha384=C1A2D3E33CC6928BE5CD.. )&gt;</sourcecode>
+<p id="_5afcde3f-badf-4e15-843c-71d425299446">Signature blocks can be inside or outside of classified blocks, allowing classified signatures and signature verification of mixed unclassified / classified data. Also signing a muted block allows a detached signature to be generated:</p>
+<sourcecode id="_70977d5d-f6a6-4713-be4f-e1e661dd7358">&lt;( SIGNED Carol ecdsap384 )&gt;
+&lt;( MUTED sha384=A206AD1D11C61BE8B5423DCBE.. )&gt;
+&lt;( SIGNATURE Carol ecdsap384:sha384=C1A2D3E33CC6928BE5CD.. )&gt;</sourcecode>
+<p id="_cb7794ee-1598-48a2-b5d3-ce7644402366">For purposes of computing the signature hash, all MUTABLE and CLASSIFIED blocks are replaced by their hashed content representation (<tt>&lt;( CLASSIFIED name alg=01234.. )&gt;</tt>). This may or may not require encryption but allows the signature the same signature to be valid for both classified and unclassified versions of the document.</p></clause>
+<clause id="_cryptographic_realization" obligation="normative"><title>Cryptographic Realization</title><p id="_38b3a90f-612f-4170-b514-5c65965600ee">We will adopt a flexible approach to cryptographic core algorithms, with an emphasis on international and national standard algorithms. For symmetric cryptography this means block ciphers AES, SM4, Kuznyechik [GOST R 34.12-2015], for hash functions SHA, SM3, and Streebog [GOST R 34.11-2012]. For asymmetric primitives similar national algorithms exist.</p>
+<p id="_1a105d4b-7e0b-45bc-afe2-a31e67fd8bb5">A baseline set of supported default algorithms is defined, consisting of AES-256, SHA2-384, ECDSA P-384, and RSA with 3072-bit key. This corresponds to the technical requirements for American TOP SECRET classification in current CNSA suite defined in CNSSP 15 "Use of Public Standards for Secure Information Sharing" ( October 20, 2016 ). See: <link target="https://www.iad.gov/iad/programs/iad-initiatives/cnsa-suite.cfm"/> (Requires accepting a funny DoD certificate.)</p>
+<p id="_aa7ef47f-26f3-430a-9923-c69cf0344368">It is desirable that the cryptographic transformations are completely deterministic,  so that the same input text will always yield the same ciphertext and therefore the same ciphertext hash. This is not a requirement in all of the above mentioned standards, but with appropriate mode selection and deterministic random number generation this should be achievable.</p>
+<clause id="_symmetric_authenticated_encryption" obligation="normative"><title>Symmetric Authenticated Encryption</title><p id="_7dd1bad6-71ec-4615-bf09-ae6d850e974d">It may be desirable to use a standardized lossless compression technique such as DEFLATE [RFC 1951] to compress text sections before encryption.</p>
+<p id="_7918b8a7-e264-4814-9cc4-9bc9fb864153">Due to its minimal message expansion and non-sequential nature of data being encrypted, a nonce-reuse/misuse resistant Authenticated Encryption with Associated Data (AEAD) mechanism seems to be a good choice for Engyon. Such modes are necessarily "double-pass" modes (for the encrypted blocks) but we envision that even in streaming mode this does not impose a large memory requirement due to hierarchical nature of the operation.</p>
+<p id="_26e8a9de-e5fa-48fa-9c68-e0f81ff4d6c8">A natural choice is to use a block cipher (e.g. AES-256) in SIV (Synthetic Initialization Vector) mode [RFC5297]. A SIV ciphertext is always 16 bytes larger than plaintext and the 16-byte authentication tag also serves as the "synthetic IV".</p>
+<p id="_d138cd90-f129-4e54-849e-9102cfb8f573">The SIV mode allows use of associated authenticated data, which may be used to establish context in order to restrict the way confidential sections can be moved in relationship to each other and between documents. However we leave that to later specification.</p></clause>
+<clause id="_signatures" obligation="normative"><title>Signatures</title><p id="_f67a94ad-6450-4879-800a-d80cac2f1511">Similarly a deterministic signature function is used so that a matching signature is always generated if the text is unmodified. An simple choice is the deterministic variant of ECDSA [RFC 6979].</p>
+<p id="_99bb57d3-0492-4aed-ae28-6105d873ecac">Signature functions that rely on randomness may be turned into deterministic algorithms in similar fashion as in RFC 6979, by using a hash of the signed data as a seed for random number generation. There are arguments why this is often more secure than purely random seeding. Furthermore the random seed cannot be used as a secret information transmission channel. In any case, the deterministic randomness generation does not usually effect signature verification (e.g. deterministic ECDSA RFC6979 signatures can be verified like any other ECDSA signature).</p></clause></clause></clause>
+</sections><bibliography><references id="_normative_references" obligation="informative">
+  <title>Normative References</title>
+  
+</references><references id="_bibliography" obligation="informative">
+  <title>Bibliography</title>
+</references></bibliography>
+</rsd-standard>

@@ -1,0 +1,1294 @@
+<?xml version="1.0"?>
+<!DOCTYPE html SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:epub="http://www.idpf.org/2007/ops">
+  <head><style>
+  <!--
+/*
+    0 CSS RESET
+*/
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  border: 0;
+  font-size: 100%; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+b, u, i, center,
+dl, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  vertical-align: baseline; }
+
+html, body, div, span, applet, object, iframe,
+p, blockquote,
+a, abbr, acronym, address, big, cite,
+del, dfn, em, img, ins, q, s,
+small, strike, strong, sub, sup, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  font-family: "Overpass", sans-serif; }
+
+code, pre, tt, kbd, samp {
+  font-family: "Space Mono", monospace; }
+
+h1, h2, h3, h4, h5, h6, .h2Annex {
+  font-family: "Overpass", sans-serif; }
+
+dl {
+  display: grid;
+  grid-template-columns: max-content auto; }
+
+dt {
+  grid-column-start: 1; }
+
+dd {
+  grid-column-start: 2; }
+
+dd p, dt p {
+  margin-top: 0px; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*
+    1. HTML & Body
+*/
+body {
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  color: #1d1d1d;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.4em;
+  background-color: #ffffff; }
+
+main {
+  margin: 0 3em 0 6em; }
+
+#toc {
+  font-family: "Overpass", sans-serif;
+  font-weight: 400; }
+
+/*
+    2. Responsive navigation layout
+*/
+@media screen and (min-width: 768px) {
+  nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 323px;
+    font-size: 0.9em;
+    overflow: auto;
+    padding: 0 0 0 45px;
+    margin-right: 30px;
+    background-color: #f7f7f7; }
+  #toggle {
+    position: fixed;
+    height: 100%;
+    width: 30px;
+    background-color: #1661AD;
+    color: white !important;
+    cursor: pointer;
+    z-index: 100; }
+  #toggle span {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%); }
+  .container {
+    padding-left: 360px; }
+  .rule.toc {
+    display: none; }
+  h1.toc-contents {
+    margin-top: 1em; }
+  ul#toc-list {
+    padding: 0;
+    margin: 0; } }
+
+@media screen and (max-width: 768px) {
+  #toc {
+    padding: 0 1.5em 0 1.5em;
+    overflow: visible; } }
+
+@media screen {
+  img {
+    width: 100%;
+    height: auto; } }
+
+#toc ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+#toc li {
+  padding: 5px 10px; }
+
+#toc a {
+  color: #485094;
+  text-decoration: none;
+  display: block; }
+
+#toc a:hover {
+  color: white; }
+
+#toc .h2 {
+  padding-left: 30px; }
+
+#toc .h3 {
+  padding-left: 50px; }
+
+#toc .toc-active a {
+  color: white; }
+
+#toc .toc-active, #toc li:hover {
+  background: #1661AD;
+  box-shadow: inset -5px 0px 10px -5px #1661AD !important; }
+
+#toc li:hover a {
+  color: white;
+  background: none;
+  box-shadow: none; }
+
+#toc li a {
+  text-transform: uppercase; }
+
+/*
+    Document types + stages
+*/
+.document-type-band {
+  left: 0;
+  top: 180px;
+  height: 100%;
+  position: fixed;
+  display: block;
+  z-index: 99;
+  /*box-shadow: -5px 0px 10px #1d1d1d*/ }
+
+.document-stage-band {
+  left: 0;
+  top: 0;
+  height: 100%;
+  position: fixed;
+  display: block;
+  z-index: 98;
+  box-shadow: -5px 0px 10px #1d1d1d; }
+
+.document-type {
+  position: relative;
+  width: 25px; }
+
+.document-stage {
+  position: relative;
+  width: 25px; }
+
+p.document-type, p.document-stage {
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin: 0;
+  margin-left: 6px;
+  writing-mode: tb-rl;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  white-space: nowrap;
+  display: block;
+  bottom: 0; }
+
+p.document-type {
+  font-weight: 400;
+  height: 150; }
+
+#governance-band p.document-type {
+  font-weight: 400;
+  height: 230px !important; }
+
+p.document-stage {
+  font-weight: 300;
+  height: 160px; }
+
+#standard-band p {
+  height: 270px; }
+
+#proposal-band p {
+  height: 150px; }
+
+#standard-band, #published-band {
+  background-color: #9ABD48; }
+
+#standard, #published {
+  border-bottom: solid 3px #9ABD48; }
+
+#governance, #policy-and-procedures {
+  border-bottom: solid 3px #750697; }
+
+#governance-band, #policy-and-procedures-band {
+  background-color: #750697; }
+
+#guide {
+  border-bottom: solid 3px #48a0e7; }
+
+#guide-band {
+  background-color: #48a0e7; }
+
+.coverpage-maturity {
+  font-family: "Overpass", sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  margin: 0 0 2em 0;
+  text-transform: uppercase; }
+
+#working-draft, #proposal {
+  border-bottom: solid 3px #F7803C; }
+
+#working-draft-band, #proposal-band {
+  background-color: #F7803C; }
+
+#committee-draft {
+  border-bottom: solid 3px #fd06fd; }
+
+#committee-draft-band {
+  background-color: #fd06fd; }
+
+#draft-standard {
+  border-bottom: solid 3px #fdf906; }
+
+#draft-standard-band {
+  background-color: #fdf906; }
+
+#standard {
+  border-bottom: solid 3px #9ABD48; }
+
+#standard-band {
+  background-color: #9ABD48; }
+
+#obsolete {
+  border-bottom: solid 3px #7e0d13; }
+
+#obsolete-band {
+  background-color: #7e0d13; }
+
+/*
+    3. TYPOGRAPHY
+*/
+/*
+    3.1 Titles
+*/
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Overpass", sans-serif;
+  color: #1661AD;
+  font-weight: 300;
+  margin-top: 1.6em;
+  margin-bottom: 0.3em; }
+
+h1 {
+  font-size: 1.6em;
+  text-transform: uppercase;
+  margin-top: 2em; }
+
+h1#content {
+  margin-top: 2em; }
+
+h2 {
+  margin-top: 1.3em;
+  font-size: 1.3em;
+  font-weight: 400; }
+
+h3 {
+  margin-top: 1.1em;
+  font-size: 1.1em;
+  font-weight: 100; }
+
+.TermNum, .Terms, .AltTerms {
+  color: #1661AD;
+  font-weight: 100; }
+
+h2.TermNum {
+  margin-bottom: 0; }
+
+p.Terms {
+  font-size: 1.1em;
+  line-height: 1.5em;
+  margin: 0; }
+
+p.AltTerms {
+  /*
+    font-style: italic;
+     */
+  font-size: 1.1em;
+  margin: 0; }
+
+/*
+    3.2 Links
+*/
+a, a:visited {
+  text-decoration: none;
+  color: #485094; }
+
+a:hover {
+  color: white;
+  background: #1661AD;
+  box-shadow: 3px 0 0 #1661AD, -3px 0 0 #1661AD;
+  /* padding: 2px 0 2px 0; */ }
+
+::selection {
+  background: #1661AD;
+  /* WebKit/Blink Browsers */
+  color: white; }
+
+::-moz-selection {
+  background: #1661AD;
+  /* Gecko Browsers */
+  color: white; }
+
+.contact-info a:hover {
+  color: #485094;
+  text-decoration: underline;
+  background: none;
+  box-shadow: 0 0 0 0; }
+
+/*
+    3.3 Lists
+*/
+ul, ol {
+  margin-left: 1.2em; }
+
+ul li {
+  list-style: none; }
+
+ul li:before {
+  content: "\2014";
+  display: inline-block;
+  width: 1em;
+  margin-left: -1.2em; }
+
+ul li p:first-child {
+  display: inline; }
+
+ul li:first-child {
+  margin-top: 1em; }
+
+#toc-list ul {
+  margin-bottom: 0.25em; }
+
+#toc-list li {
+  list-style-type: none; }
+
+#toc li:before {
+  content: " ";
+  display: none; }
+
+/*
+    3.4 Rules
+*/
+.rule {
+  width: 100%;
+  height: 1px;
+  background-color: #0e1a85;
+  margin: 2em 0; }
+
+/*
+    3.5 Bibliograhy
+*/
+p.Biblio, p.NormRef {
+  margin-top: 1em;
+  margin-left: 2em; }
+
+/*
+    3.6 Source Code + figures
+*/
+.figure, .Sourcecode {
+  font-family: "Space Mono", monospace;
+  background-color: #f7f7f7;
+  font-size: 0.8em;
+  line-height: 1.6em;
+  padding: 1.5em;
+  margin: 2em 0 1em 0;
+  overflow: auto; }
+
+.FigureTitle {
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center; }
+
+/*
+    3.7 Notes
+*/
+.Note {
+  background-color: #fff495;
+  color: #47430c;
+  padding: 1.2em;
+  margin: 1em 0 1em 0; }
+  .Note p {
+    margin: 0; }
+
+/*
+    3.8 Examples
+*/
+.example {
+  background-color: #e1eef1;
+  padding: 1.2em;
+  margin: 2em 0 1em 0; }
+
+.example .example-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 0; }
+
+/*
+    3.9 Tables
+*/
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-weight: 300;
+  margin: 1em 0 2em 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 2em; }
+
+table, th, td {
+  border: 1px solid black;
+  font-size: 0.95em; }
+
+td, th {
+  padding: 1em; }
+
+td.header {
+  font-weight: 400; }
+
+p.TableTitle {
+  text-align: center;
+  margin-top: 2.5em;
+  font-weight: 400; }
+
+/*
+  3.10 Footnotes
+*/
+a.footnote-number {
+  vertical-align: super;
+  font-size: 0.8em; }
+
+.footnote {
+  font-size: 0.9em; }
+
+/*
+    3.11 Blockquotes
+*/
+.Quote {
+  background-color: #f7f7f7;
+  font-style: italic;
+  width: 80%;
+  padding: 1.5em;
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto; }
+
+/*
+    3.12 Formulas
+*/
+.formula {
+  background-color: #f7f7f7;
+  padding: 1.5em;
+  margin-top: 2em;
+  text-align: center; }
+
+/*
+    3.13 Contact Info
+*/
+.contact-info {
+  padding: 2em;
+  margin-top: 5em;
+  width: 250px;
+  text-align: left;
+  border: #1661AD solid 2px;
+  color: #1661AD !important;
+  border-radius: 25px; }
+
+.contact-info a,
+.contact-info a:hover {
+  color: #1661AD; }
+
+.contact-info p, .contact-info a {
+  font-family: "Space Mono", monospace;
+  font-weight: 400; }
+
+.contact-info .name {
+  font-weight: 700;
+  font-size: 1.2em;
+  margin-bottom: 0; }
+
+.contact-info .address {
+  font-size: 1em;
+  line-height: 1.3em;
+  margin-top: 0; }
+
+/*
+    Keywords
+*/
+span.keyword {
+  font-weight: 600; }
+
+/*
+    Paragraphs
+*/
+p {
+  margin-top: 1em;
+  margin-bottom: 1em; }
+
+h2 p {
+  display: inline; }
+
+/*
+    4.0 Page header
+*/
+/*
+    4.1 Top Logo
+*/
+.icon-svg {
+  width: 100%;
+  color: #5ecf86; }
+
+.wrapper-top {
+  background: linear-gradient(200deg, #0f365e, #1661AD);
+  color: #ffffff;
+  padding: 2em 0;
+  width: 100%; }
+
+.wrapper-top-bottom {
+  width: 0;
+  height: 0;
+  border-top: 100px solid #1661AD;
+  border-right: 100px solid transparent;
+  position: absolute; }
+
+.doc-number {
+  font-size: 0.5em;
+  font-family: "Overpass", sans-serif; }
+
+.coverpage-title {
+  padding-bottom: 0.5em;
+  font-family: "Overpass", sans-serif;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  font-weight: 100;
+  padding-left: 1em;
+  padding-right: 1em;
+  text-transform: uppercase; }
+
+.WordSection11 {
+  padding: 0 2em 0 3em; }
+
+.info-section {
+  padding: 0 2em 0 5em; }
+
+.prefatory-section {
+  padding: 0 3em 0 6em; }
+
+.zzSTDTitle1, .MsoCommentText {
+  display: none; }
+
+.coverpage {
+  text-align: center;
+  padding-left: 1.5em; }
+
+.coverpage-logo span, .coverpage-tc-name span {
+  font-family: "Overpass", sans-serif;
+  text-transform: none;
+  font-weight: 300; }
+
+.coverpage-tc-name {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  margin: 0.25em 0; }
+
+/*
+    4.2 Document Identity
+*/
+.coverpage-doc-identity {
+  font-size: 2em;
+  line-height: 2em; }
+
+.coverpage-title .title-second {
+  display: none; }
+
+.coverpage-stage-block {
+  font-family: "Overpass", sans-serif;
+  font-weight: 600;
+  font-size: 1.25em;
+  margin: 2em 0em 2em 0em;
+  text-transform: uppercase; }
+
+/*
+    4.3 Draft Warning
+*/
+.coverpage-warning {
+  border: #f36f36 solid 2px;
+  color: #f36f36 !important;
+  margin: 1em 2em;
+  color: #485094;
+  padding: 2em 1em 1em 1em;
+  border-radius: 25px; }
+
+.coverpage-warning .title {
+  font-family: "Overpass", sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 1.2em; }
+
+/*
+    4.4 Copyright
+*/
+.copyright {
+  padding: 1em;
+  font-size: 0.9em;
+  text-align: left; }
+
+/*  .copyright .name, .copyright .address {color: #485094;} */
+/*
+    5.0 Other styles
+*/
+/*
+To top button
+*/
+#myBtn {
+  font-family: "Space Mono", monospace;
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 12px;
+  border: none;
+  outline: none;
+  background-color: #1f8ca0;
+  opacity: 0.15;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px 10px 15px;
+  border-radius: 4px;
+  text-transform: uppercase; }
+
+#myBtn:hover {
+  opacity: 1; }
+
+a.anchorjs-link:hover {
+  background: none;
+  color: #485094;
+  box-shadow: none; }
+
+@page {
+  margin: 2cm 1cm; }
+
+@media print {
+  .document-info, nav, .copyright {
+    page-break-before: always; }
+  nav {
+    page-break-after: always; }
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+    margin-top: 1.2em; }
+  .note, .figure, .Sourcecode, table {
+    page-break-inside: avoid; }
+  .info-section {
+    display: none; }
+  .coverpage {
+    height: 23cm; }
+  .wrapper-top {
+    top: 0;
+    padding-top: 4cm;
+    padding-bottom: 4cm; }
+  .wrapper-top-bottom {
+    margin-top: -5px; }
+  #toggle, .document-stage-band,
+  .document-type-band, button#myBtn {
+    display: none; }
+  button#myBtn {
+    background-color: white; }
+  .container {
+    padding-left: 0; }
+  nav {
+    position: relative;
+    width: auto;
+    font-size: 0.9em;
+    overflow: auto;
+    padding: 0;
+    margin-right: 0;
+    background-color: white; }
+  #toc .toc-active a {
+    color: #4D7EA5; }
+  #toc .toc-active, #toc li:hover {
+    background: white;
+    box-shadow: none !important; }
+  #toc li:hover a {
+    color: black; }
+  h1.content {
+    margin-top: 2em;
+    line-height: 2.5em; }
+  h1 {
+    font-size: 1.5em;
+    line-height: 1.5; }
+  h2 {
+    font-size: 1.2em; }
+  h3 {
+    font-size: 1em; }
+  .Note {
+    background-color: #fff495;
+    color: #47430c;
+    padding: 5px;
+    margin: 2em 0 1em 0; }
+  .Note p {
+    padding: 0 5px 0 5px; }
+  nav {
+    line-height: 1; }
+  .wrapper-top-bottom {
+    display: none; } }
+
+-->
+</style><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    <title>Secure document&#x2009;&#x2014;&#x2009;Engyon&#x2009;&#x2014;&#x2009;Plain text representation</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!--TOC script import-->
+<script type="text/javascript" src="https://cdn.rawgit.com/jgallen23/toc/0.3.2/dist/toc.min.js"></script>
+
+<!--Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i|Space+Mono:400,700" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Overpass:300,300i,600,900" rel="stylesheet" />
+<!--Font awesome import for the link icon-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous" />
+<style class="anchorjs"></style>
+</head>
+  <body lang="EN-US" link="blue" vlink="#954F72" xml:lang="EN-US" class="container">
+    <div class="title-section"><div class="document-stage-band" id="draft standard-band">
+    <p class="document-stage">Draft Standard</p>
+</div>
+
+<div class="document-type-band" id="standard-band">
+    <p class="document-type">Ribose Standard</p>
+</div>
+  
+    
+
+  <div id="toggle"> <span>&#x2022;</span> </div>
+
+  <header>
+
+<!--<div class="WordSection1">-->
+  <div class="coverpage">
+    <div class="wrapper-top">
+
+  <div class="coverpage-doc-identity">
+    <div class="doc-number">
+      <span class="docnumber">XXXXX(d):2018</span>
+      <span class="docyear"></span>
+    </div>
+
+    <div class="coverpage-title">
+      <span class="title-first">Secure document&#x2009;&#x2014;&#x2009;Engyon&#x2009;&#x2014;&#x2009;Plain text representation</span>
+      <!--<span class="title-second"></span>-->
+    </div>
+  </div>
+
+  <div class="coverpage-logo">
+    <span>Ribose Group Inc. 2018</span>
+  </div>
+
+  <div class="coverpage-tc-name">
+    <span></span>
+  </div>
+  </div>
+
+    <div class="wrapper-top-bottom"></div>
+
+  <div class="WordSection11">
+  <div class="coverpage-stage-block">
+    <span class="coverpage-stage" id="standard">Ribose Standard</span>
+  </div>
+
+  <div class="coverpage-stage-block">
+    <p><span class="coverpage-maturity" id="draft-standard">Draft Standard</span></p>
+
+</div>
+
+
+
+
+  <div class="coverpage-warning">
+    <span class="title">Warning for Drafts</span>
+
+    <p class="content">
+    This document is not a Ribose Standard. It is distributed for review and
+    comment, and is subject to change without notice and may not be referred to as
+    a Standard. Recipients of this draft are invited to submit, with their
+    comments, notification of any relevant patent rights of which they are aware
+    and to provide supporting documentation.
+    </p>
+  </div>
+
+
+<div class="info-section">
+<div class="copyright">
+  <p class="year">
+    &#xA9; 2018 Ribose Group Inc.
+  </p>
+
+  <p class="message">
+    All rights reserved. Unless otherwise specified, no part of this
+    publication may be reproduced or utilized otherwise in any form or by any
+    means, electronic or mechanical, including photocopying, or posting on the
+    internet or an intranet, without prior written permission. Permission can
+    be requested from the address below.
+  </p>
+
+<div class="contact-info">
+  <p class="name">Ribose Group Inc.</p>
+  <p class="address">
+    Suite 1, 8/F, New Henry House<br />
+    10 Ice House Street<br />
+    Central<br />
+    Hong Kong<br />
+    <br />
+    <a href="mailto:copyright@ribose.com">copyright@ribose.com</a><br />
+    <a href="open.ribose.com">www.ribose.com</a>
+  </p>
+</div>
+</div>
+
+<div class="rule"></div>
+</div>
+  </div>
+
+
+
+</div></header>
+      <p>&#xA0;</p>
+    </div>
+    <br />
+    <div class="prefatory-section"><nav>
+  <h1 id="content">Contents</h1>
+  <div id="toc"></div>
+
+</nav>
+
+
+<div class="rule toc"></div>
+
+      <p>&#xA0;</p>
+    </div>
+    <br />
+    <main class="main-section"><button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+      <br />
+      <div>
+        <h1 class="ForewordTitle">Foreword</h1>
+        <p id="_22dc1275-6cdf-4685-af3e-381ec5acd074">Ribose is the asymmetric security company.</p>
+        <p id="_db5b3cab-b5ef-4983-b233-f8ec7296601e">Ribose Group Inc. ("Ribose") is global developer of <i>asymmetric security</i> technologies across user-centric systems and applications.</p>
+        <p id="_65ab6647-c520-499d-a0b4-afdee00ea23d">Ribose works closely with international organizations such as ISO, CalConnect and the Cloud Security Alliance.</p>
+        <p id="_86300119-14e2-4633-b3c8-5f7df8c13789">The procedures used to develop this document and those intended for its further maintenance are described in the Ribose Standardization Directives.</p>
+        <p id="_03fef831-8578-4c73-8aba-e23623662447">In particular the different approval criteria needed for the different types of Ribose documents should be noted. This document was drafted in accordance with the
+editorial rules of the Ribose Standardization Directives.</p>
+        <p id="_d0e3a593-aa64-47e7-aeb1-14a6073088c5">Attention is drawn to the possibility that some of the elements of this
+document may be the subject of patent rights. Ribose shall not be held responsible
+for identifying any or all such patent rights. Details of any patent rights
+identified during the development of the document will be in the Introduction.</p>
+        <p id="_c3a72ecb-b5f5-4822-bd0c-cfe12b229c3c">Any trade name used in this document is information given for the convenience
+of users and does not constitute an endorsement.</p>
+        <p id="_64133012-b325-494e-916f-fea31a34132c">This document was prepared by the Ribose Committee <i>Security</i>.</p>
+      </div>
+      <br />
+      <div class="Section3" id="introduction">
+        <h1 class="IntroTitle">Introduction</h1>
+        <p id="_a0492feb-9205-45c9-8add-88c7ae402d6d">Ribose has developed a document model called "BasicDoc" (better name search in progress). It is basically a data model to represent a textual document, supports localization and change set (i.e. collaborative editing) features.</p>
+        <p id="_d30e6191-4310-4eae-8b01-7be5293557b6">This model relies on a bibliographic data model called Relaton.</p>
+        <p id="_9e5426ec-e97f-40c4-8d8b-c12ec040d94e">BasicDoc: <a href="https://github.com/riboseinc/basicdoc-models">https://github.com/riboseinc/basicdoc-models</a></p>
+        <p id="_2e7e2915-e3e8-4419-9f22-1ad20f70d6b7">BasicDoc has an adaptation that is further in progress, called
+Metanorma. Metanorma is a document model for "Standard documents",
+such as ISO standards, etc. It has already been adopted as the
+"standard model" by a number of standards bodies, including
+CalConnect, Cloud Security Alliance. It is one of the accepted ways to
+publish at the IETF (its AsciiDoc variant, called AsciiRFC), M3AAWG,
+and at the Standards Administration of China.</p>
+        <p id="_2c0201dd-63f1-43ff-9c07-4db7ed0d1bee">Metanorma: <a href="https://github.com/riboseinc/metanorma-model-standoc">https://github.com/riboseinc/metanorma-model-standoc</a></p>
+        <p id="_9db62808-e841-42b1-92ef-e53357628bfa">BasicDoc forms the basis for the Engyon Secure Document Model.</p>
+        <p id="_e11656a4-93f0-4c5a-91c2-e0af6cadf264">The secure document model is meant to achieve the following:</p>
+        <ul id="_03623cc6-1527-464e-aa0e-40d9ca3d9138">
+  <li>
+    <p id="_e249d8d1-ebbc-4b6f-b277-988567e7fb04">a static file result &#x2014; similar to a Word document, a standalone document that can be transmitted such as via email</p>
+  </li>
+  <li>
+    <p id="_a6249376-ddeb-49a1-90f5-beffd5473279">protects content and metadata of the document (confidentiality, integrity, authenticity)</p>
+  </li>
+  <li>
+    <p id="_5b074251-444f-410b-a2aa-dc9eb35aaee1">supports partial authenticity and encryption, i.e. a confidential document may contain publicly accessible content and metadata too. BasicDoc is a hierarchical data model, there are document sections, blocks, paragraphs, text, etc., so it can protect only the necessary parts of the document. This could also work as redaction of content.</p>
+  </li>
+  <li>
+    <p id="_0bd29755-7d52-489e-a067-e5c9b98c26bc">supports information classification and labelling</p>
+  </li>
+  <li>
+    <p id="_2e3f48fb-bd2d-494f-ae89-9c72f64ac4af">supports secure change set features, such as encrypted sharing + patching (since BasicDoc supports patching)</p>
+  </li>
+  <li>
+    <p id="_a6d0a6ac-2dc2-46a4-969d-8d2e54db60ba">supports a text-based workflow (it&#x2019;s more up to the toolchain, but we still want text editors to be useful, vs a Word doc that is not editable without Word)</p>
+  </li>
+  <li>
+    <p id="_bf145d83-c878-451a-a0cc-ed90b202b808">supports an end-to-end cloud-based workflow, for features such as expiry, access revocation, auditing</p>
+  </li>
+  <li>
+    <p id="_f650087f-a729-49b1-bec4-dca287b10b78">potential wish list: one-time access; time-based access (allowed to read in some future timeframe); content watermarking (for printing)</p>
+  </li>
+</ul>
+        <p id="_b78a377d-8181-4e38-9f49-ef8881a98673">Engyon is greek for "guarantee".</p>
+      </div>
+      <p class="zzSTDTitle1">Secure document&#x2009;&#x2014;&#x2009;Engyon&#x2009;&#x2014;&#x2009;Plain text representation</p>
+      <div id="scope">
+        <h1>1.&#xA0; Scope</h1>
+        <p id="_4b0cc362-e0ab-453e-b5c8-3cdaab41561d">This document defines a textual representation of the Engyon secure
+document model.</p>
+        <p id="_381754b8-366e-4123-9ce9-573f636a6fb2">(TODO.)</p>
+      </div>
+      <div>
+        <h1>2.&#xA0; Normative references</h1>
+        <p>There are no normative references in this document.</p>
+      </div>
+      <div id="terms"><h1>3.&#xA0; Terms, definitions, symbols and abbreviated terms</h1><p>For the purposes of this document,
+    the following terms and definitions apply.</p>
+<div id="_terms_and_definitions"><h2>3.1. Terms and definitions</h2><h3 class="TermNum" id="_secure_document">3.1.1&#xA0;<p class="Terms" style="text-align:left;">Secure document</p></h3>
+  
+  <p id="_7a2be257-3af1-4ae0-a05a-4e873354ced5">document protected against unauthorized access</p>
+
+<h3 class="TermNum" id="_semi_honest">3.1.2&#xA0;<p class="Terms" style="text-align:left;">Semi-honest</p></h3>
+  
+  <p id="_7c032d63-324e-4d21-8f29-46a3013d19b8">honest in performing operations, but curious and may try to steal
+data</p>
+
+<h3 class="TermNum" id="_user">3.1.3&#xA0;<p class="Terms" style="text-align:left;">user</p></h3>
+  
+  <p id="_91e7579c-73cd-4395-b8c5-ae4f11c6af8b">person that utilizes a service</p>
+
+<h3 class="TermNum" id="_access_control">3.1.4&#xA0;<p class="Terms" style="text-align:left;">access control</p></h3>
+  
+  <p id="_cb7a6ac9-24a7-4a51-b42a-7dcec4c13227">TODO.</p>
+
+<h3 class="TermNum" id="_author">3.1.5&#xA0;<p class="Terms" style="text-align:left;">author</p></h3>
+  
+  <p id="_b6c3e233-06d1-49a1-8635-90ce72f4ff7c">TODO.</p>
+
+<h3 class="TermNum" id="_role">3.1.6&#xA0;<p class="Terms" style="text-align:left;">role</p></h3>
+  
+  <p id="_e111c08b-8914-4c2c-8a37-6ab78c5e09f4">TODO.</p>
+
+<h3 class="TermNum" id="_classification">3.1.7&#xA0;<p class="Terms" style="text-align:left;">classification</p></h3>
+  
+  <p id="_88d38803-299b-4b4f-9146-5faf7cb9bc07">TODO.</p>
+
+<h3 class="TermNum" id="_classification_label">3.1.8&#xA0;<p class="Terms" style="text-align:left;">classification label</p></h3>
+  
+  <p id="_b0b312a3-9311-4a36-9a8c-fea327b5edde">TODO.</p>
+
+<h3 class="TermNum" id="_content_addressable_storage">3.1.9&#xA0;<p class="Terms" style="text-align:left;">content addressable storage</p></h3>
+  
+  <p id="_42d86c08-84a3-4677-a212-16560e6c7946">TODO.</p>
+
+<h3 class="TermNum" id="_forward_secrecy">3.1.10&#xA0;<p class="Terms" style="text-align:left;">forward secrecy</p></h3><p id="_4c04b6f5-65fb-4d01-a407-0b43597f9f19">method such that user of revoked access is unable to access data
+created after access revocation</p>
+<div class="Note"><p>Note 1 to entry: Refer to <a href="#RFC7525">section 6.3</a></p></div>
+<h3 class="TermNum" id="_public_key_infrastructure">3.1.11&#xA0;<p class="Terms" style="text-align:left;">public key infrastructure</p></h3>
+  <p class="AltTerms" style="text-align:left;">PKI</p>
+
+<p id="_b6876d82-08d1-420e-8a58-2b17771c4721">TODO.</p>
+<h3 class="TermNum" id="_blockcipher">3.1.12&#xA0;<p class="Terms" style="text-align:left;">blockcipher</p></h3>
+  
+  <p id="_ed974f48-a408-4fca-b5b3-502d0ff6cae8">encryption algorithm that encrypts a plaintext into an equivalent
+sized ciphertext, using an identical key for encryption and
+decryption</p>
+</div><div id="_symbols"><h2>3.2. Symbols and abbreviated terms</h2>
+  <dl id="_9dede718-46ba-40dd-9f62-c3eee729d4af"><dt>
+    <span class="stem">(#(E(K, m))#)</span>
+  </dt><dd>
+    <p id="_cb6c0642-8df0-494b-b166-d4777fcc69e7">Encryption of the message <span class="stem">(#(m)#)</span> using a key of an asymmetric keypair <span class="stem">(#(K)#)</span></p>
+  </dd><dt>
+    <span class="stem">(#(D(K, m))#)</span>
+  </dt><dd>
+    <p id="_060e1b09-3c7b-44f1-8606-3c12921efd0a">Decryption of the message <span class="stem">(#(m)#)</span> using a key of an asymmetric keypair <span class="stem">(#(K)#)</span></p>
+  </dd><dt>
+    <span class="stem">(#(BCE(K, m))#)</span>
+  </dt><dd>
+    <p id="_ac96b2e9-d0c2-44ad-ba69-96fa00a10707">Symmetric encryption, through the blockcipher <span class="stem">(#(BC)#)</span>, of the message
+<span class="stem">(#(m)#)</span> using the key <span class="stem">(#(K)#)</span></p>
+  </dd><dt>
+    <span class="stem">(#(BCD(K, m))#)</span>
+  </dt><dd>
+    <p id="_6bfdf9ef-1530-4831-8523-593565c1aa39">Symmetric decryption, through the blockcipher <span class="stem">(#(BC)#)</span>, of the message
+<span class="stem">(#(m)#)</span> using the key <span class="stem">(#(K)#)</span></p>
+  </dd></dl>
+</div></div>
+      <div id="syntax">
+        <h1>4.&#xA0; Engyon Protected Text</h1>
+        <p id="_087abd01-cddb-4e45-b70f-37c1d82cdcab">Engyon Protected Text (EPT) is a human-editable annotation method that allows a text format document to contain finely grained cryptographic confidentiality and integrity features. It allows parties with different access parameters (e.g. clearance) to collaboratively work on the same document.</p>
+        <p id="_936e5f1e-84da-456a-9580-691f5e4b038d">EPT annotation is contained in comments so that it does not affect rendering or compilation of the document.</p>
+        <ul id="_934b7087-6c72-43d8-a3d2-d73ee2a8883e">
+  <li>
+    <p id="_779447bf-c194-4536-9359-39dc585e608b"><b>Classified</b> sections are encrypted with an AEAD algorithm if the document is in <i>unclassified state</i>.</p>
+  </li>
+  <li>
+    <p id="_35e8fe7a-5b82-4e7a-bf1d-5852cc12c5ab"><b>Signed</b> sections are protected by a signature and can&#x2019;t be modified without detection.</p>
+  </li>
+</ul>
+        <p id="_e0963e2e-cf8a-4dcf-8caa-900c89dcf338">An initial non-integrated version of Engyon "protect" tools takes a form of a single-pass parser that allows a text-format documents to be reversibly transformed between different classification levels. The same tool can also be used to verify and create signatures inside the document.</p>
+        <p id="_11bd2242-403f-4e62-be05-7d45679fff16">In practice this allows a (partly or wholly) unclassified version of a document to be automatically created where restricted parts are replaced with invisible references (or with full encrypted blocks) for distribution. Vice versa, one can <i>reclassify</i>  a modified unclassified document, making confidential parts in the document available and editable again. Signatures are verified and updated with the same tool.</p>
+        <p id="_f7537c96-5449-452b-ba89-fa87b46c35ac">Note that the EPT markup can be used in all parts of the document and across different document types, including metadata. An unclassified version of a document doesn&#x2019;t have to include the authors of its classified portions, for example. Furthermore it is possible to construct a browser plugin that unlocks confidential portions of, say, a HTML document with a secret key.</p>
+        <div id="_ept_statement"><h2>4.1. EPT Statement</h2><p id="_80a581ca-92ae-4ee7-9425-587b8840d673">An EPT statement is enclosed by a left separator <tt>LEFT_SEP</tt> and right separator <tt>RIGHT_SEP</tt>, so that the EPT statement itself appears as</p>
+<p id="_333027b6-0fe2-486f-b9e6-2fd7bc8f0b11" class="Sourcecode">&#xA0;&#xA0;&lt;(&#xA0;STATEMENT&#xA0;)&gt;</p>
+<p id="_0f5c64b7-a9bb-4bac-9231-af447ebede94">in the editable text. The annotation can use the comments feature of a host language so that these markings do not affect the rendering or compilation of the document. Some examples:</p>
+<p class="TableTitle" align="center">Table 1</p><table id="_073e3fec-0d08-4b31-ab47-ef2758605456" class="MsoISOTable" border="1" cellspacing="0" cellpadding="0"><thead><tr><th align="left" style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;">Format</th><th align="left" style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;">
+        <tt>LEFT_SEP</tt>
+      </th><th align="left" style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;">
+        <tt>RIGHT_SEP</tt>
+      </th></tr></thead><tbody><tr><td align="left" style="border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">Raw text format</td><td align="left" style="border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;"><tt>"\n&lt;("</tt>,</td><td align="left" style="border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">
+        <tt>")&gt;"</tt>
+      </td></tr><tr><td align="left" style="border-top:none;border-bottom:solid windowtext 1.0pt;">AsciiDoc and C++ code</td><td align="left" style="border-top:none;border-bottom:solid windowtext 1.0pt;">
+        <tt>"\n// &lt;("</tt>
+      </td><td align="left" style="border-top:none;border-bottom:solid windowtext 1.0pt;">
+        <tt>")&gt;"</tt>
+      </td></tr><tr><td align="left" style="border-top:none;border-bottom:solid windowtext 1.0pt;">MarkDown, XML, HTML</td><td align="left" style="border-top:none;border-bottom:solid windowtext 1.0pt;">
+        <tt>"&lt;-- &lt;("</tt>
+      </td><td align="left" style="border-top:none;border-bottom:solid windowtext 1.0pt;">
+        <tt>")&gt; --&gt;"</tt>
+      </td></tr><tr><td align="left" style="border-top:none;border-bottom:solid windowtext 1.5pt;">(La)TeX and similar</td><td align="left" style="border-top:none;border-bottom:solid windowtext 1.5pt;">
+        <tt>"\n% &lt;("</tt>
+      </td><td align="left" style="border-top:none;border-bottom:solid windowtext 1.5pt;">
+        <tt>")&gt;"</tt>
+      </td></tr></tbody></table>
+<p id="_31bed43f-9463-4091-bbf2-f72c1a1e7415">The separators are configurable and are determined from file type (extension), if available. The statements are mostly intended to be on their own line, hence the newline (<tt>'\n'</tt>) in <tt>LEFT_SEP</tt>.</p>
+<p id="_818d04b0-99f4-476b-8b93-c0763a99d90c">Such statements define blocks of text (such as a confidential or signed part). Blocks can include other blocks for multi-level access control and/or integrity protection.</p></div>
+        <div id="_immutable_blocks_and_binary_blobs"><h2>4.2. Immutable Blocks and Binary Blobs</h2><p id="_4dfb98e6-fbd7-403e-9cfb-169f155f58b7">EPT supports Content Addressed Storage (CAS) to abbreviate documents for editing and transmission. CAS allows non-changing parts of a document to be referred by their contents. We use this system primarily for ciphertext and signature data, but it can be used for arbitrary purposes; for example to include a well known public piece of text such as a standard license agreement.</p>
+<p id="_586626eb-5135-4227-9476-ff6c949cbb0c">All references within an EPT are fully unambiguous&#x2009;&#x2014;&#x2009;the reference alone fully specifies what is being referenced. Therefore there cannot be an EPT reference by the contents of a filename or a web address. This is needed to guarantee that signatures are well defined. It is always possible to "open up" an EPT document (up to the viewers' access level anyway.)</p>
+<p id="_16600bf7-3320-4652-914f-3bd75b1275f8">There is a helper notation which does not offer proper cryptographic confidentiality or integrity protection, but still helps to avoid accidental changes to static parts of a document. This is accomplished by enclosing them in an IMMUTABLE / MUTABLE block construct.</p>
+<p id="_2ec3308c-35ec-4511-b4ba-fb4cd7b9996f" class="Sourcecode">//&#xA0;&lt;(&#xA0;IMMUTABLE&#xA0;Approved-May&#xA0;sha384=DC910F5E499F8BE84488D..&#xA0;)&gt;<br />(c)&#xA0;2018&#xA0;Ribose&#xA0;Inc.&#xA0;Any&#xA0;trade&#xA0;name&#xA0;used&#xA0;in&#xA0;this&#xA0;document&#xA0;..<br />//&#xA0;&lt;(&#xA0;MUTABLE&#xA0;Approved-May&#xA0;)&gt;</p>
+<p id="_11c4e03a-756b-48fa-a1e8-9b36fabea022">The protect tool can be used to update and verify hash values in order to protect them from accidential modifications.</p>
+<p id="_294fc304-a2d5-4033-a4bb-1a561f5edc3b">When ran through the parser with appropriate parameters the contents of the block marked "Approved-May" can also be hidden from view and replaced by a simple object reference to the hash of its "muted" contents:</p>
+<p id="_178a0cd5-2c19-4a01-b361-53dbe9523340" class="Sourcecode">//&#xA0;&lt;(&#xA0;MUTED&#xA0;Approved-May&#xA0;sha384=DC910F5E499F8BE84488D..&#xA0;)&gt;</p>
+<p id="_bffd1cc0-bb48-4133-b409-1cecab075b95">Often such blobs are stored in local object storage, e.g. a directory with files whose filenames match with a hexadecimal hash of their contents. Such objects can also be shared via a cloud service or using peer-to-peer methods. Content addressed storage implies nothing about the storage or transport technologies used to fetch an object.</p>
+<p id="_bedfcd24-cf7a-4b3c-b676-8ac8c523181a">If there are CLASSIFY/UNCLASSIFY blocks the hash is computed over their ciphertext representation, e.g. exactly as if they were CLASSIFIED sections. This ciphertext format is also used to store muted blocks.</p></div>
+        <div id="_group_keys"><h2>4.3. Group keys</h2><p id="_82ddf250-9486-4624-995d-fe3ea83029fc">Engyon supports both very simple and highly advanced key management features, such as:</p>
+<ul id="_5b70b878-2074-491a-b220-a095800ab3cc">
+  <li>
+    <p id="_5f34a896-6c3f-4072-8e87-982a41d85979">A secret key derived from a passphrase with a key derivation function such as Argon2.</p>
+  </li>
+  <li>
+    <p id="_c9cf017e-a68c-44d7-99a6-60288c4f814a">An access-restricted local secret key file to allow automated processing.</p>
+  </li>
+  <li>
+    <p id="_5fe2faa7-9227-4be4-b54b-d3ab6f81ef41">SmartCards and Hardware Security Modules (HSMs).</p>
+  </li>
+  <li>
+    <p id="_ead6edcc-5bf5-40e2-9e2a-7958afae942a">An online key server or identity provider mechanism such as SAML. This allows access control lists to be centrally managed within an organization.</p>
+  </li>
+  <li>
+    <p id="_c207dfb1-7069-42ff-affd-7fd60bccb4bc">Timed declassification where a trusted third party notary service is used to automatically declassify a document at certain time.</p>
+  </li>
+  <li>
+    <p id="_c29a134d-3fae-413d-8019-03f9b82193d9">k-of-n group control where "k" members of an n-member group are required to decrypt or sign document&#x2009;&#x2014;&#x2009;e.g. two persons with given security classification.</p>
+  </li>
+</ul>
+<p id="_41db8782-ea86-40a1-ad4f-80f6d0d17bea">Due to the wide spectrum of potential key management methods, a "key" actually refers to a configuration information that specifies how a specific key can be obtained and used. This configuration is specified in Nereon configuration syntax (NOC), which is close to nginx UCL and JSON.</p>
+<p id="_4d984d87-ce7d-4702-93dd-5178ec0495ad">Within the EPT syntax, a shorthand syntax is used for keys. Again, a reference is made to the the contents of the key file of structure. The actual key storage and access is left to the implementation.</p>
+<p id="_375ca177-73d7-4b12-ba9c-1b4a138d5261">Keys must be defined before they are used so typically they are defined in a signed block at the beginning of the document.</p>
+<p id="_2903b740-38c0-40fd-a808-ba694af8284b" class="Sourcecode">//&#xA0;&lt;(&#xA0;SIGNED&#xA0;...&#xA0;)&gt;<br />//&#xA0;&lt;(&#xA0;KEY&#xA0;Deputies&#xA0;sha384=86716A025E4AAF0347C9..&#xA0;)&gt;<br />//&#xA0;&lt;(&#xA0;CERT&#xA0;Alice&#xA0;sha384=7725AD485A8EBDE97BB04E86C1..&#xA0;)&gt;<br />&#xA0;&#xA0;..&#xA0;document&#xA0;body&#xA0;..<br />//&#xA0;&lt;(&#xA0;UNKEY&#xA0;Deputies&#xA0;)&gt;<br />//&#xA0;&lt;(&#xA0;SIGNATURE&#xA0;..&#xA0;)&gt;</p>
+<p id="_3f335fbd-1505-43dc-be4a-abb154236eb2">Defines that the hash of the key file for "Deputies" classification group and the public key certificate for "Alice" that can be used to verify her signatures.</p>
+<p id="_2c42995e-ae41-4b28-a1c0-218d6f039922">Keys configuration files can be also included in the document itself in base64 format:</p>
+<p id="_92a8ccf5-72f8-42f7-a52c-ddb5d7805f81" class="Sourcecode">//&#xA0;&lt;(&#xA0;KEY&#xA0;Deputies&#xA0;base64=86716A025E4AAF0347C9..&#xA0;)&gt;</p>
+<p id="_45c3e220-ff10-4b2b-9f5f-a1dce0ce6795">This of course makes no sense unless the key format uses e.g. passphrase protection.</p>
+<p id="_386a89c7-a13c-417c-bd65-88ff39209598">A key shorthand does not need to be globally unique; we may use UNKEY and UNCERT statements that cause the parser to forget the reference to a given secret or public key name.</p></div>
+        <div id="_classified_blocks"><h2>4.4. Classified Blocks</h2><p id="_e2ef4259-04f6-4a92-9ccb-91e507f81d15">A block of text can be marked as needing confidentiality protection if it is enclosed between CLASSIFY and UNCLASSIFY statements. Such statements also contain a short name of a shared confidentiality group. A confidentiality group name maps to a context-specific secret symmetric key.</p>
+<p id="_5d90c64b-7b02-4897-b21a-0c02ab16a239">In this example a short text is classified to the "Deputies" group. This is the classified version of the block.</p>
+<p id="_93ec6ccd-4db3-4127-858b-a129466038d3" class="Sourcecode">//&#xA0;&lt;(&#xA0;CLASSIFY&#xA0;Deputies&#xA0;aes256siv&#xA0;)&gt;<br />Confidential&#xA0;Source&#xA0;13&#xA0;is&#xA0;Mallory.<br />//&#xA0;&lt;(&#xA0;UNCLASSIFY&#xA0;Deputies&#xA0;)&gt;</p>
+<p id="_37724430-415e-4ee9-8bdc-42a1db6a190c">The third parameter in a CLASSIFY statement is the preferred algorithm to be used, e.g. "aes256siv" for AES-256 in SIV mode.</p>
+<p id="_b9e0e2ba-42af-4640-b56c-aa5935337cdc">When the document is unclassified (i.e. the protect tool is ran on it), the CLASSIFY / UNCLASSIFY block is encrypted with the group key "Deputies". Its contents are replaced by a single CLASSIFIED statement, name of the same group key and either the a base64 representation of the ciphertext or a hash reference to it.</p>
+<p id="_0a651d9a-6805-401a-b55f-d05c36824a4d" class="Sourcecode">//&#xA0;&#xA0;&lt;(&#xA0;CLASSIFIED&#xA0;Deputies&#xA0;aes256siv:base64=0mlH0RxyPOf8b1r..&#xA0;)&gt;</p>
+<p id="_d75c0116-7b27-4f40-8974-b49f88ef015a">Since an authenticated encryption algorithm is used, any modification to the ciphertext can be detected (actually making recovery of any plaintext impossible).</p>
+<p id="_f97de99c-0564-4fa9-9c65-257bfae52059">A hash reference to the hasah of the ciphretext blob can also be used:</p>
+<p id="_7a532424-46ca-41e9-8d64-0f2d0e6557e8" class="Sourcecode">//&#xA0;&#xA0;&lt;(&#xA0;CLASSIFIED&#xA0;Deputies&#xA0;aes256siv:sha384=DC910F5E499F8B...&#xA0;)&gt;</p>
+<p id="_e18ec4a0-fd96-4ac1-a9fb-c71fab9c2995">In practice the hash references are used when distributing the unclassified version to parties who do not have access to the classified information. Conversely, full ciphertext can be included in versions that are distributed to parties that can decrypt the classified data. In both cases the result can be handled as an unclassified document (if contains CLASSIFIED statements instead of CLASSIFY / UNCLASSIFY statements).</p>
+<p id="_818e143c-17f9-4993-81a1-17fcb98ed2cc">The storage of the encrypted blobs is left to the implementation, but they can be simply put in an "objects" folder of current working directory, with the hash as a filename. However this storage does not have to be permanent&#x2009;&#x2014;&#x2009;the encrypted objects needed for reclassifying a document after edits have been made to its unclassified form can be extracted from an older classified version of the same document.</p></div>
+        <div id="_signed_integrity_protected_blocks"><h2>4.5. Signed (integrity-protected) blocks</h2><p id="_c3f511aa-932e-44d9-96cc-dc60ee397588">Blocks that are are integrity protected are limited by SIGNED / SIGNATURE statements.</p>
+<p id="_7350ca3f-e0fb-4086-b28b-7fec3d1b5fe8" class="Sourcecode">//&#xA0;&lt;(&#xA0;SIGNED&#xA0;Alice&#xA0;ecdsap384&#xA0;)&gt;<br />A&#xA0;reward&#xA0;of&#xA0;$3.14&#xA0;is&#xA0;offered&#xA0;for&#xA0;information&#xA0;leading&#xA0;to&#xA0;arrest&#xA0;of&#xA0;Bob.<br />//&#xA0;&lt;(&#xA0;SIGNATURE&#xA0;Alice&#xA0;ecdsap384:base64=fI3m+vgcovG1Olu31WPVyh..&#xA0;)&gt;</p>
+<p id="_d296e63c-004f-4c66-821c-0cb27aa944c6">Alternatively to the signature itself being contained in the document, a hash reference may be used here too.</p>
+<p id="_79fda2e7-1bb0-4f48-80e6-95ff35da2cda" class="Sourcecode">//&#xA0;&lt;(&#xA0;SIGNED&#xA0;Bob&#xA0;ecdsap384&#xA0;)&gt;<br />Eve&#xA0;did&#xA0;it,&#xA0;she&#xA0;is&#xA0;Evil.<br />//&#xA0;&lt;(&#xA0;SIGNATURE&#xA0;Bob&#xA0;ecdsap384:sha384=C1A2D3E33CC6928BE5CD..&#xA0;)&gt;</p>
+<p id="_5afcde3f-badf-4e15-843c-71d425299446">Signature blocks can be inside or outside of classified blocks, allowing classified signatures and signature verification of mixed unclassified / classified data. Also signing a muted block allows a detached signature to be generated:</p>
+<p id="_70977d5d-f6a6-4713-be4f-e1e661dd7358" class="Sourcecode">&lt;(&#xA0;SIGNED&#xA0;Carol&#xA0;ecdsap384&#xA0;)&gt;<br />&lt;(&#xA0;MUTED&#xA0;sha384=A206AD1D11C61BE8B5423DCBE..&#xA0;)&gt;<br />&lt;(&#xA0;SIGNATURE&#xA0;Carol&#xA0;ecdsap384:sha384=C1A2D3E33CC6928BE5CD..&#xA0;)&gt;</p>
+<p id="_cb7794ee-1598-48a2-b5d3-ce7644402366">For purposes of computing the signature hash, all MUTABLE and CLASSIFIED blocks are replaced by their hashed content representation (<tt>&lt;( CLASSIFIED name alg=01234.. )&gt;</tt>). This may or may not require encryption but allows the signature the same signature to be valid for both classified and unclassified versions of the document.</p></div>
+        <div id="_cryptographic_realization"><h2>4.6. Cryptographic Realization</h2><p id="_38b3a90f-612f-4170-b514-5c65965600ee">We will adopt a flexible approach to cryptographic core algorithms, with an emphasis on international and national standard algorithms. For symmetric cryptography this means block ciphers AES, SM4, Kuznyechik [GOST R 34.12-2015], for hash functions SHA, SM3, and Streebog [GOST R 34.11-2012]. For asymmetric primitives similar national algorithms exist.</p>
+<p id="_1a105d4b-7e0b-45bc-afe2-a31e67fd8bb5">A baseline set of supported default algorithms is defined, consisting of AES-256, SHA2-384, ECDSA P-384, and RSA with 3072-bit key. This corresponds to the technical requirements for American TOP SECRET classification in current CNSA suite defined in CNSSP 15 "Use of Public Standards for Secure Information Sharing" ( October 20, 2016 ). See: <a href="https://www.iad.gov/iad/programs/iad-initiatives/cnsa-suite.cfm">https://www.iad.gov/iad/programs/iad-initiatives/cnsa-suite.cfm</a> (Requires accepting a funny DoD certificate.)</p>
+<p id="_aa7ef47f-26f3-430a-9923-c69cf0344368">It is desirable that the cryptographic transformations are completely deterministic,  so that the same input text will always yield the same ciphertext and therefore the same ciphertext hash. This is not a requirement in all of the above mentioned standards, but with appropriate mode selection and deterministic random number generation this should be achievable.</p>
+<div id="_symmetric_authenticated_encryption"><h3>4.6.1. Symmetric Authenticated Encryption</h3><p id="_7dd1bad6-71ec-4615-bf09-ae6d850e974d">It may be desirable to use a standardized lossless compression technique such as DEFLATE [RFC 1951] to compress text sections before encryption.</p>
+<p id="_7918b8a7-e264-4814-9cc4-9bc9fb864153">Due to its minimal message expansion and non-sequential nature of data being encrypted, a nonce-reuse/misuse resistant Authenticated Encryption with Associated Data (AEAD) mechanism seems to be a good choice for Engyon. Such modes are necessarily "double-pass" modes (for the encrypted blocks) but we envision that even in streaming mode this does not impose a large memory requirement due to hierarchical nature of the operation.</p>
+<p id="_26e8a9de-e5fa-48fa-9c68-e0f81ff4d6c8">A natural choice is to use a block cipher (e.g. AES-256) in SIV (Synthetic Initialization Vector) mode [RFC5297]. A SIV ciphertext is always 16 bytes larger than plaintext and the 16-byte authentication tag also serves as the "synthetic IV".</p>
+<p id="_d138cd90-f129-4e54-849e-9102cfb8f573">The SIV mode allows use of associated authenticated data, which may be used to establish context in order to restrict the way confidential sections can be moved in relationship to each other and between documents. However we leave that to later specification.</p></div>
+<div id="_signatures"><h3>4.6.2. Signatures</h3><p id="_f67a94ad-6450-4879-800a-d80cac2f1511">Similarly a deterministic signature function is used so that a matching signature is always generated if the text is unmodified. An simple choice is the deterministic variant of ECDSA [RFC 6979].</p>
+<p id="_99bb57d3-0492-4aed-ae28-6105d873ecac">Signature functions that rely on randomness may be turned into deterministic algorithms in similar fashion as in RFC 6979, by using a hash of the signed data as a seed for random number generation. There are arguments why this is often more secure than purely random seeding. Furthermore the random seed cannot be used as a secret information transmission channel. In any case, the deterministic randomness generation does not usually effect signature verification (e.g. deterministic ECDSA RFC6979 signatures can be verified like any other ECDSA signature).</p></div></div>
+      </div>
+      <br />
+      <div>
+        <h1 class="Section3">Bibliography</h1>
+      </div>
+    </main>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    asciimath2jax: {
+      delimiters: [['(#(', ')#)']]
+    }
+ });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=AM_HTMLorMML"></script>
+<script>
+    //TOC generation
+      $('#toc').toc({
+          'selectors': 'h1,h2:not(.TermNum)', //elements to use as headings
+          'container': 'main', //element to find all selectors in
+          'smoothScrolling': true, //enable or disable smooth scrolling on click
+          'prefix': 'toc', //prefix for anchor tags and class names
+          'onHighlight': function(el) {}, //called when a new section is highlighted 
+          'highlightOnScroll': true, //add class to heading that is currently in focus
+          'highlightOffset': 100, //offset to trigger the next headline
+          'anchorName': function(i, heading, prefix) { //custom function for anchor name
+              return prefix+i;
+          },
+          'headerText': function(i, heading, $heading) { //custom function building the header-item text
+              return $heading.text();
+          },
+      'itemClass': function(i, heading, $heading, prefix) { // custom function for item class
+        return $heading[0].tagName.toLowerCase();
+      }
+      });
+      
+  </script>
+
+<script>
+  //TOC toggle animation
+$('#toggle').on('click', function(){
+    if( $('nav').is(':visible') ) {
+        $('nav').animate({ 'left': '-353px' }, 'slow', function(){
+            $('nav').hide();
+        });
+        $('.container').animate({ 'padding-left': '31px' }, 'slow');
+    }
+    else {
+        $('nav').show();
+        $('nav').animate({ 'left': '0px' }, 'slow');
+        $('.container').animate({ 'padding-left': '360px' }, 'slow');
+    }
+});
+</script>
+
+<script>
+    // Scroll to top button
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            document.getElementById("myBtn").style.display = "block";
+        } else {
+            document.getElementById("myBtn").style.display = "none";
+        }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+
+  <script>
+/**
+ * AnchorJS - v4.1.0 - 2017-09-20
+ * https://github.com/bryanbraun/anchorjs
+ * Copyright (c) 2017 Bryan Braun; Licensed MIT
+ */
+!function(A,e){"use strict";"function"==typeof define&&define.amd?define([],e):"object"==typeof module&&module.exports?module.exports=e():(A.AnchorJS=e(),A.anchors=new A.AnchorJS)}(this,function(){"use strict";return function(A){function e(A){A.icon=A.hasOwnProperty("icon")?A.icon:"",A.visible=A.hasOwnProperty("visible")?A.visible:"hover",A.placement=A.hasOwnProperty("placement")?A.placement:"right",A.ariaLabel=A.hasOwnProperty("ariaLabel")?A.ariaLabel:"Anchor",A.class=A.hasOwnProperty("class")?A.class:"",A.truncate=A.hasOwnProperty("truncate")?Math.floor(A.truncate):64}function t(A){var e;if("string"==typeof A||A instanceof String)e=[].slice.call(document.querySelectorAll(A));else{if(!(Array.isArray(A)||A instanceof NodeList))throw new Error("The selector provided to AnchorJS was invalid.");e=[].slice.call(A)}return e}function i(){if(null===document.head.querySelector("style.anchorjs")){var A,e=document.createElement("style");e.className="anchorjs",e.appendChild(document.createTextNode("")),void 0===(A=document.head.querySelector('[rel="stylesheet"], style'))?document.head.appendChild(e):document.head.insertBefore(e,A),e.sheet.insertRule(" .anchorjs-link {   opacity: 0;   text-decoration: none;   -webkit-font-smoothing: antialiased;   -moz-osx-font-smoothing: grayscale; }",e.sheet.cssRules.length),e.sheet.insertRule(" *:hover > .anchorjs-link, .anchorjs-link:focus  {   opacity: 1; }",e.sheet.cssRules.length),e.sheet.insertRule(" [data-anchorjs-icon]::after {   content: attr(data-anchorjs-icon); }",e.sheet.cssRules.length),e.sheet.insertRule(' @font-face {   font-family: "anchorjs-icons";   src: url(data:n/a;base64,AAEAAAALAIAAAwAwT1MvMg8yG2cAAAE4AAAAYGNtYXDp3gC3AAABpAAAAExnYXNwAAAAEAAAA9wAAAAIZ2x5ZlQCcfwAAAH4AAABCGhlYWQHFvHyAAAAvAAAADZoaGVhBnACFwAAAPQAAAAkaG10eASAADEAAAGYAAAADGxvY2EACACEAAAB8AAAAAhtYXhwAAYAVwAAARgAAAAgbmFtZQGOH9cAAAMAAAAAunBvc3QAAwAAAAADvAAAACAAAQAAAAEAAHzE2p9fDzz1AAkEAAAAAADRecUWAAAAANQA6R8AAAAAAoACwAAAAAgAAgAAAAAAAAABAAADwP/AAAACgAAA/9MCrQABAAAAAAAAAAAAAAAAAAAAAwABAAAAAwBVAAIAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAMCQAGQAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAQAAg//0DwP/AAEADwABAAAAAAQAAAAAAAAAAAAAAIAAAAAAAAAIAAAACgAAxAAAAAwAAAAMAAAAcAAEAAwAAABwAAwABAAAAHAAEADAAAAAIAAgAAgAAACDpy//9//8AAAAg6cv//f///+EWNwADAAEAAAAAAAAAAAAAAAAACACEAAEAAAAAAAAAAAAAAAAxAAACAAQARAKAAsAAKwBUAAABIiYnJjQ3NzY2MzIWFxYUBwcGIicmNDc3NjQnJiYjIgYHBwYUFxYUBwYGIwciJicmNDc3NjIXFhQHBwYUFxYWMzI2Nzc2NCcmNDc2MhcWFAcHBgYjARQGDAUtLXoWOR8fORYtLTgKGwoKCjgaGg0gEhIgDXoaGgkJBQwHdR85Fi0tOAobCgoKOBoaDSASEiANehoaCQkKGwotLXoWOR8BMwUFLYEuehYXFxYugC44CQkKGwo4GkoaDQ0NDXoaShoKGwoFBe8XFi6ALjgJCQobCjgaShoNDQ0NehpKGgobCgoKLYEuehYXAAAADACWAAEAAAAAAAEACAAAAAEAAAAAAAIAAwAIAAEAAAAAAAMACAAAAAEAAAAAAAQACAAAAAEAAAAAAAUAAQALAAEAAAAAAAYACAAAAAMAAQQJAAEAEAAMAAMAAQQJAAIABgAcAAMAAQQJAAMAEAAMAAMAAQQJAAQAEAAMAAMAAQQJAAUAAgAiAAMAAQQJAAYAEAAMYW5jaG9yanM0MDBAAGEAbgBjAGgAbwByAGoAcwA0ADAAMABAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAH//wAP) format("truetype"); }',e.sheet.cssRules.length)}}this.options=A||{},this.elements=[],e(this.options),this.isTouchDevice=function(){return!!("ontouchstart"in window||window.DocumentTouch&&document instanceof DocumentTouch)},this.add=function(A){var n,o,s,a,r,c,h,l,u,d,f,p=[];if(e(this.options),"touch"===(f=this.options.visible)&&(f=this.isTouchDevice()?"always":"hover"),A||(A="h2, h3, h4, h5, h6"),0===(n=t(A)).length)return this;for(i(),o=document.querySelectorAll("[id]"),s=[].map.call(o,function(A){return A.id}),r=0;r<n.length;r++)if(this.hasAnchorJSLink(n[r]))p.push(r);else{if(n[r].hasAttribute("id"))a=n[r].getAttribute("id");else if(n[r].hasAttribute("data-anchor-id"))a=n[r].getAttribute("data-anchor-id");else{u=l=this.urlify(n[r].textContent),h=0;do{void 0!==c&&(u=l+"-"+h),c=s.indexOf(u),h+=1}while(-1!==c);c=void 0,s.push(u),n[r].setAttribute("id",u),a=u}a.replace(/-/g," "),(d=document.createElement("a")).className="anchorjs-link "+this.options.class,d.href="#"+a,d.setAttribute("aria-label",this.options.ariaLabel),d.setAttribute("data-anchorjs-icon",this.options.icon),"always"===f&&(d.style.opacity="1"),""===this.options.icon&&(d.style.font="1em/1 anchorjs-icons","left"===this.options.placement&&(d.style.lineHeight="inherit")),"left"===this.options.placement?(d.style.position="absolute",d.style.marginLeft="-1em",d.style.paddingRight="0.5em",n[r].insertBefore(d,n[r].firstChild)):(d.style.paddingLeft="0.375em",n[r].appendChild(d))}for(r=0;r<p.length;r++)n.splice(p[r]-r,1);return this.elements=this.elements.concat(n),this},this.remove=function(A){for(var e,i,n=t(A),o=0;o<n.length;o++)(i=n[o].querySelector(".anchorjs-link"))&&(-1!==(e=this.elements.indexOf(n[o]))&&this.elements.splice(e,1),n[o].removeChild(i));return this},this.removeAll=function(){this.remove(this.elements)},this.urlify=function(A){var t=/[& +$,:;=?@"#{}|^~[`%!'<>\]\.\/\(\)\*\\]/g;return this.options.truncate||e(this.options),A.trim().replace(/\'/gi,"").replace(t,"-").replace(/-{2,}/g,"-").substring(0,this.options.truncate).replace(/^-+|-+$/gm,"").toLowerCase()},this.hasAnchorJSLink=function(A){var e=A.firstChild&&(" "+A.firstChild.className+" ").indexOf(" anchorjs-link ")>-1,t=A.lastChild&&(" "+A.lastChild.className+" ").indexOf(" anchorjs-link ")>-1;return e||t||!1}}});  </script>
+
+  <script>
+  $(document).ready(function() {
+          $('[id^=toc]').each(function ()
+          {
+             var currentToc = $(this);
+       var url = window.location.href;
+             currentToc.wrap("<a href='" + url + "#" + currentToc.attr("id") + "' </a>");
+          });
+});
+  anchors.options = {
+  placement: 'left'
+};
+anchors.add('h1, h2, h3, h4');
+</script></body>
+</html>
