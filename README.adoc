@@ -1,53 +1,69 @@
-== Draft specification for the Engyon text syntax
+:repo-name: rsd-engyon-syntax
 
-=== Prerequisites / Installation
+= Ribose Standard: Secure document -- Engyon -- Plain text representation
 
-This specification is built using Metanorma, which relies on a Ruby
-workflow (version 2.4+).
+This work item belongs to TC CALSPAM.
 
-==== macOS
+image:https://travis-ci.com/riboseinc/rsd-engyon-syntax.svg?branch=master["Build Status", link="https://travis-ci.com/riboseinc/rsd-engyon-syntax"]
 
-If you're on macOS, just run the
-https://github.com/riboseinc/metanorma-macos-setup[Metanorma install script]:
+This document is available in its rendered forms here:
 
-[source,sh]
-----
-bash <(curl -s https://raw.githubusercontent.com/riboseinc/metanorma-macos-setup/master/metanorma-setup)
-----
+* https://riboseinc.github.io/rsd-engyon-syntax/[Ribose Standard: Secure document -- Engyon -- Plain text representation (HTML)]
+* https://riboseinc.github.io/rsd-engyon-syntax/rsd-engyon-syntax.pdf[PDF]
+* https://riboseinc.github.io/rsd-engyon-syntax/rsd-engyon-syntax.xml[Metanorma XML]
+* https://riboseinc.github.io/rsd-engyon-syntax/rsd-engyon-syntax.rxl[Relaton XML (Bibliographic item)]
 
-==== Linux
+Because of all this, there is no need to build the document on your own, but if you wish to do so, this is how it can be done:
 
-On Ubuntu 18.04 the Ruby prerequisites can be installed with:
+== Fetching the document
 
 [source,sh]
 ----
-sudo apt install git make ruby-bundler ruby-dev libxml2-dev libxslt-dev default-jre
-sudo gem install bundler
-sudo gem install nokogiri -v '1.8.4'
+git clone https://github.com/riboseinc/rsd-engyon-syntax/
 ----
 
-The document can then be built with `make clean all`.
+== Installing Build Tools
 
-==== Other platforms
+See https://www.metanorma.com/overview/getting-started/
 
-Please install Ruby 2.4+, and just run `make clean all` which will
-install the required gems, and build the document automatically.
 
-=== Usage
+== Running via Docker or locally
 
-Run this to generate the RSD HTML.
+If you have installed the build tools locally, and wish to run the
+locally-installed compilation tools, there is nothing further to set.
+
+If you don't want to deal with local dependencies, use the docker
+version by:
+
+[source,sh]
+----
+export METANORMA_DOCKER=1
+----
+
+The `Makefile` will automatically choose the proper command to
+execute.
+
+
+== Building The Document
 
 [source,sh]
 ----
 make clean all
 ----
 
-Which you can open with:
+The following outputs will be built:
+
+* RSD XML (https://github.com/riboseinc/metanorma-model-rsd) (`[filename].xml`)
+* HTML (`[filename].html`)
+* PDF (`[filename].pdf`)
+* Word DOC (`[filename].doc`)
+
+
+== Iterating the document
 
 [source,sh]
 ----
-make open
-# or
-# open rsd-*.html
+make html
+open rsd-*.html
 ----
 

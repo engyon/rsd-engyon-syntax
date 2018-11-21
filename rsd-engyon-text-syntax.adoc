@@ -1,4 +1,5 @@
-= Engyon -- Plain text representation
+= Secure document -- Engyon -- Plain text representation
+:title: Secure document -- Engyon -- Plain text representation
 :docnumber: XXXXX
 :edition: 1
 :ref-docnumber: RS 12001:2018(E)
@@ -6,7 +7,6 @@
 :revdate: 20180706T00:00:00Z
 :language: en
 :script: Latn
-:title: Secure document technology -- Engyon document model -- Plain text representation
 :doctype: standard
 :status: draft-standard
 :technical-committee: Security
