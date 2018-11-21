@@ -1,43 +1,39 @@
-MAIN_SRC := $(wildcard rsd-*.adoc)
-DOC      := $(patsubst %.adoc,%.doc,$(MAIN_SRC))
-XML      := $(patsubst %.adoc,%.xml,$(MAIN_SRC))
-HTML     := $(patsubst %.adoc,%.html,$(MAIN_SRC))
-DOCTYPE  := rsd
+#!make
+SHELL := /bin/bash
 
-ALL_ADOC_SRC := *.adoc **/*.adoc
-SRC_doc      := $(ALL_ADOC_SRC)
-SRC_xml      := $(ALL_ADOC_SRC)
-SRC_html     := $(ALL_ADOC_SRC)
+include metanorma.env
+export $(shell sed 's/=.*//' metanorma.env)
 
-MAIN_UML_SRC := model.uml
-XMI          := $(patsubst %.uml,%.xmi,$(MAIN_UML_SRC))
-PNG          := $(patsubst %.uml,%.png,$(MAIN_UML_SRC))
-SVG          := $(patsubst %.uml,%.svg,$(MAIN_UML_SRC))
+DOCTYPE := $(METANORMA_DOCTYPE)
+FORMATS := $(METANORMA_FORMATS)
+comma := ,
+empty :=
+space := $(empty) $(empty)
+FORMATS_LIST := $(subst $(space),$(comma),$(FORMATS))
 
-ALL_UML_SRC := *.uml
-SRC_xmi     := $(ALL_UML_SRC)
-SRC_png     := $(ALL_UML_SRC)
-SRC_svg     := $(ALL_UML_SRC)
+SRC  := $(filter-out README.adoc, $(wildcard *.adoc))
+XML  := $(patsubst %.adoc,%.xml,$(SRC))
+HTML := $(patsubst %.adoc,%.html,$(SRC))
+DOC  := $(patsubst %.adoc,%.doc,$(SRC))
+PDF  := $(patsubst %.adoc,%.pdf,$(SRC))
 
-ALL_SRC := $(ALL_ADOC_SRC) $(ALL_UML_SRC)
+COMPILE_CMD_LOCAL := bundle exec metanorma -t $(DOCTYPE) -x $(FORMATS_LIST) $$FILENAME
+COMPILE_CMD_DOCKER := docker run -v "$$(pwd)":/metanorma/ ribose/metanorma "metanorma -t $(DOCTYPE) -x $(FORMATS_LIST) $$FILENAME"
 
-FORMATS := html doc xml xmi png svg
+ifdef METANORMA_DOCKER
+  COMPILE_CMD := echo "Compiling via docker..."; $(COMPILE_CMD_DOCKER)
+else
+  COMPILE_CMD := echo "Compiling locally..."; $(COMPILE_CMD_LOCAL)
+endif
 
 _OUT_FILES := $(foreach FORMAT,$(FORMATS),$(shell echo $(FORMAT) | tr '[:lower:]' '[:upper:]'))
 OUT_FILES  := $(foreach F,$(_OUT_FILES),$($F))
 
-SHELL := /bin/bash
-
 all: $(OUT_FILES)
 
-%.png: %.uml
-	plantuml $^
-
-%.xmi: %.uml
-	plantuml -xmi:star $^
-
-%.xml %.html %.doc:	%.adoc | bundle
-	bundle exec metanorma -t $(DOCTYPE) -x html $^
+%.xml %.html %.doc %.pdf:	%.adoc | bundle
+	FILENAME=$^; \
+	${COMPILE_CMD}
 
 define FORMAT_TASKS
 OUT_FILES-$(FORMAT) := $($(shell echo $(FORMAT) | tr '[:lower:]' '[:upper:]'))
@@ -61,13 +57,10 @@ $(foreach FORMAT,$(FORMATS),$(eval $(FORMAT_TASKS)))
 open: open-html
 
 clean:
-	rm -f $(OUT_FILES) Gemfile Gemfile.lock package.json
+	rm -f $(OUT_FILES)
 
-bundle:	Gemfile Gemfile.lock
-	bundle
-
-Gemfile Gemfile.lock package.json:
-	ln -s ../common/$@ .
+bundle:
+	if [ "x" == "${METANORMA_DOCKER}x" ]; then bundle; fi
 
 .PHONY: bundle all open clean
 
@@ -108,3 +101,22 @@ serve: $(NODE_BIN_DIR)/live-server revealjs-css reveal.js images
 
 watch-serve: $(NODE_BIN_DIR)/run-p
 	$< watch serve
+
+#
+# Deploy jobs
+#
+
+publish:
+	mkdir -p published  && \
+	cp -a $(basename $(SRC)).* published/ && \
+	cp $(firstword $(HTML)) published/index.html; \
+	if [ -d "images" ]; then cp -a images published; fi
+
+deploy_key:
+	openssl aes-256-cbc -K $(encrypted_$(ENCRYPTION_LABEL)_key) \
+		-iv $(encrypted_$(ENCRYPTION_LABEL)_iv) -in $@.enc -out $@ -d && \
+	chmod 600 $@
+
+deploy: deploy_key
+	export COMMIT_AUTHOR_EMAIL=$(COMMIT_AUTHOR_EMAIL); \
+	./deploy.sh
